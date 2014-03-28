@@ -1,9 +1,9 @@
 {
-  "name": "contrast-finder-add-on",
-  "title": "contrast-finder-add-on",
-  "id": "jid1-s2pNiWXBBoF92w",
-  "description": "Contrast Finder add-on check if your contrast is valid. If the contrast is not valid, it redirect you to contrast-finder.tanaguru.com with the foreground and background values",
+  "name": "Tanaguru Contrast-Finder 0.1",
+  "title": "Tanaguru Contrast-Finder",
+  "id": "contrast-finder-extension@tanaguru.com",
+  "description": "Speed and ease the use of Contrast-Finder to find good colors for contrasts in web accessibility (a11y). Right-clic on a given part of text, select whether you want to improve the foreground or background color, and validate.",
   "author": "Open-S",
-  "license": "MPL 2.0",
+  "license": "AGPL",
   "version": "0.1"
 }
