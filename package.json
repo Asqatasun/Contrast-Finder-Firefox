@@ -1,0 +1,9 @@
+{
+  "name": "contrast-finder-add-on",
+  "title": "contrast-finder-add-on",
+  "id": "jid1-s2pNiWXBBoF92w",
+  "description": "Contrast Finder add-on check if your contrast is valid. If the contrast is not valid, it redirect you to contrast-finder.tanaguru.com with the foreground and background values",
+  "author": "Open-S",
+  "license": "MPL 2.0",
+  "version": "0.1"
+}
