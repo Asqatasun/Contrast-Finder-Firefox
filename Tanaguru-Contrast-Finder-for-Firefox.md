@@ -13,6 +13,6 @@ Right-clic on a given part of text, select whether you want to improve the foreg
 
 TODO
 
-## How to deply
+## How to deploy
 
 TODO
