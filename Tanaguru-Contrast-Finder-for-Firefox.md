@@ -14,8 +14,8 @@ Right-clic on a given part of text, select whether you want to improve the foreg
 1. `git clone git@github.com:Tanaguru/Contrast-Finder-Firefox.git`
 1. Get [lastest Mozilla Addon SDK](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip) 
 1. from the SDK, run `bin/activate` (please, read the SDK's README that describes it all)
-1. get into the directory of the source code, and run `cfx xpi`
+1. To test `cfx run`
 
 ## How to deploy
 
-TODO
+1. get into the directory of the source code, and run `cfx xpi`
