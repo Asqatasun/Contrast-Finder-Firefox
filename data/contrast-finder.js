@@ -198,7 +198,7 @@ self.on("click", function(node, data) {
     }
 
     if (bgColor == 'error') {
-        alert("Impossible to verify the contrast. The background color is an image.");
+        alert("Oups, we could not verify the contrast.\nThis element has a background-image inherited.");
     } else {
         var ratio = getContrastRatio(getForegroundColor(node), bgColor);
 	var fontSize = getForegroundFontSize(node);
