@@ -11,9 +11,14 @@ Right-clic on a given part of text, select whether you want to improve the foreg
 
 ## Screenshots
 
-![my-alt](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_1_right_clic.png)
+### Right-clic on a text and choose to improve background of foreground
 
-![houba](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_2_result_page.png)
+![1) Enhance contrast for the green label (from Bootstrap) : right-clic on it and select whether to improve foreground of background.](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_1_right_clic.png)
+
+### Choose the colour you like most
+
+![
+2) Valid colours (for contrast) are presented, just pick the one you like most !](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_2_result_page.png)
 
 ## How to build
 
