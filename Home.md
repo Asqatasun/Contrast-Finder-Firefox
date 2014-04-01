@@ -9,6 +9,10 @@ Right-clic on a given part of text, select whether you want to improve the foreg
 * If the contrast between text color (foreground) and the background is correct, you will have an informative message.
 * On the other hand, if the contrast is not valid, you will be directed a "result page" of Contrast-Finder giving you choices of colors that create valid contrast options.
 
+## Screenshots
+
+
+
 ## How to build
 
 1. `git clone git@github.com:Tanaguru/Contrast-Finder-Firefox.git`
