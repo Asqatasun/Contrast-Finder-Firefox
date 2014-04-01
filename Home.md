@@ -11,7 +11,9 @@ Right-clic on a given part of text, select whether you want to improve the foreg
 
 ## Screenshots
 
+![my-alt](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_1_right_clic.png)
 
+![houba](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_2_result_page.png)
 
 ## How to build
 
