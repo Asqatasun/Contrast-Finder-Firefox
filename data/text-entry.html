@@ -1,5 +1,7 @@
 <html>
   <head>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
     <style type="text/css" media="all">
       textarea {
       margin: 10px;
@@ -19,19 +21,22 @@
       }
     </style>
   </head>
-  <body>
+  <body class="container">
     <form name="formulaire" role="form">
       <label for="Selector">Selector</label>
       <input type="checkbox" name="selector" id="selector" value="selected"/>
       <div class="form-group">
 	<div>
-	  <label class="col-lg-1" for="edit-box-foreground">Foreground</label>
+	  <label for="edit-box-foreground">Foreground</label>
 	  <input type="text" id="edit-box-foreground" required="required"/>
 	</div>
+      </div>
+      <div class="form-group">
 	<div>
 	  <label for="edit-box-background">Background</label>
 	  <input type="text" rows="10" cols="10" id="edit-box-background" required="required"/>
 	</div>
+      </div>
 	<div>
 	  <label for="select-box-component">Component</label>
 	  <select id="select-box-component" name="select-box-component">
@@ -70,8 +75,7 @@
 	<div class="error-message" id="channel-alpha">
 	  <span>The foreground or background color has an alpha channel</span>
 	</div>
-      </div>
-      <a id="submit" href="http://google.fr">Get my results !</a>
+	<a id="submit" href="http://google.fr">Get my results !</a>
     </form>
     <script type="text/javascript" src="get-text.js"></script>
   </body>
