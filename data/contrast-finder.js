@@ -198,7 +198,7 @@ self.on("click", function(node, data) {
     }
 
     if (bgColor == 'error') {
-        alert("Oups, we could not verify the contrast.\nThis element has a background-image inherited.");
+        alert("Impossible to verify the contrast. The background color is an image.");
     } else {
         var ratio = getContrastRatio(getForegroundColor(node), bgColor);
 	var fontSize = getForegroundFontSize(node);
@@ -209,7 +209,7 @@ self.on("click", function(node, data) {
             window.location.href = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + colorToHex(getForegroundColor(node)) + "&background=%23" + colorToHex(bgColor) + "&isBackgroundTested=" + data + "&ratio=3&algo=HSV";
 	}
 	else {
-	    alert("Hey, contrast is already OK !\nForeground: #" + colorToHex(getForegroundColor(node)).toUpperCase() + "\nBackground #" + colorToHex(bgColor).toUpperCase() );
+            alert("The contrast is valid (" + (ratio * 100000) / 100000 + " > 4.5).\nYour ratio is " + Math.round(ratio * 100000) / 100000 + "\nColors found : #" + colorToHex(getForegroundColor(node)) + " (foreground) / #" + colorToHex(bgColor) + " (background)");
         }
     }
 });

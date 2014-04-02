@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <style type="text/css" media="all">
+      textarea {
+      margin: 10px;
+      }
+
+      .error-message {
+      color: red;
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="formulaire" role="form">
+      <label for="Selector">Selector</label>
+      <input type="checkbox" name="selector" id="selector" value="selected"/>
+      <div class="form-group">
+	<div>
+	  <label class="col-lg-1" for="edit-box-foreground">Foreground</label>
+	  <input type="text" id="edit-box-foreground" required="required"/>
+	</div>
+	<div>
+	  <label for="edit-box-background">Background</label>
+	  <input type="text" rows="10" cols="10" id="edit-box-background" required="required"/>
+	</div>
+	<div>
+	  <label for="select-box-component">Component</label>
+	  <select id="select-box-component" name="select-box-component">
+	    <option value="foreground">Edit the foreground</option>
+	    <option value="background">Edit the background</option>
+	  </select>
+	</div>
+	<div>
+	  <label for="select-box-ratio">Ratio</label>
+	  <select id="select-box-ratio" name="select-box-ratio">
+	    <option value="3" selected="selected">3</option>
+	    <option value="4.5">4.5</option>
+	    <option value="7">7</option>
+	  </select>
+	</div>
+	<div>
+	  <fieldset>
+	    <legend> Gimme </legend>
+	    <div>
+	    <label for="algo1">
+	      <input type="radio" name="algo" id="algo1" value="HSV" checked="checked"/>
+	      a range of valid colors
+	    </label>
+	    </div>
+	    <div>
+	      <label for="algo2">
+		<input type="radio" name="algo" id="algo2" value="RGB"/>
+		valid colors and very closed to initial color
+	      </label>
+	    </div>
+	  </fieldset>
+	</div>
+	<div class="error-message" id="background-error">
+	  <span>The background is an image</span>
+	</div>
+	<div class="error-message" id="channel-alpha">
+	  <span>The foreground or background color has an alpha channel</span>
+	</div>
+	<div>
+	  <input id="submit-button" type="submit" value="Check and find contrast"/>
+	</div>
+      </div>
+      <a href="http://google.fr">Google</a>
+    </form>
+    <script type="text/javascript" src="get-text.js"></script>
+  </body>
+</html>
