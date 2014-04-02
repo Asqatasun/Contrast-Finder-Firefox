@@ -2,9 +2,8 @@ var foreground = document.getElementById("edit-box-foreground");
 var background = document.getElementById("edit-box-background");
 var ratio = document.getElementById("select-box-ratio");
 var component = document.getElementById("select-box-component");
-var sumbit = document.getElementById("submit-button");
 var selector = document.getElementById("selector");
-
+var coucou = document.getElementById("submit");
 
 selector.addEventListener("click", selectorFunc);
 
@@ -12,6 +11,7 @@ function selectorFunc() {
     if (selector.checked) {
 	document.getElementById("background-error").style.display = "none";
 	document.getElementById("channel-alpha").style.display = "none";
+	submit.style.display = "none";
 	addon.port.emit("checked");
     } else {
 	addon.port.emit("unchecked");
@@ -21,6 +21,7 @@ function selectorFunc() {
 addon.port.on("live-components", function(tabResult) {
     document.getElementById("background-error").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
+    submit.style.display = "none";
     if(tabResult === "background-error") {
 	document.getElementById("background-error").style.display = "block";
 	foreground.value = "";
@@ -58,31 +59,28 @@ addon.port.on("click-components", function(tabResult) {
     }
     selector.checked = false;
     addon.port.emit("unchecked");
-});
 
-addon.port.on("stop-selector", function() {
-    selector.checked = false;
-});
-
-document.forms["formulaire"].onsubmit = function() {
     foreground = document.getElementById("edit-box-foreground");
     background = document.getElementById("edit-box-background");
     ratio = document.getElementById("select-box-ratio");
     component = document.getElementById("select-box-component");
-
+    
+    var backgroundIsTested = false;
     var algo1 = document.getElementById("algo1");
     var algo = "HSV";
     if (algo1.checked != true) {
 	algo = "Rgb"
     }
-
-    var backgroundIsTested = false;
     if (component.value == "background") {
 	backgroundIsTested = true;
     }
-
+    
     var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + foreground.value + "&background=%23" + background.value + "&isBackgroundTested=" + backgroundIsTested + "&ratio=" + ratio.value + "&algo=" + algo;
+    submit.style.display = "block";
+    submit.href = openUrl;
 
+});
+
+addon.port.on("stop-selector", function() {
     selector.checked = false;
-    addon.port.emit("contrast-finder-get-url", openUrl);
-}
+});
