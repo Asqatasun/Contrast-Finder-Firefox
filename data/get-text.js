@@ -1,10 +1,12 @@
 var foreground = document.getElementById("edit-box-foreground");
 var background = document.getElementById("edit-box-background");
-var component = document.getElementById("select-box-component");
+var component = document.getElementById("");
 var selector = document.getElementById("selector");
 var submit = document.getElementById("submit");
 var label_button = document.getElementById("label-selector");
+var backgroundIsTested = false;
 var ratio;
+
 
 selector.addEventListener("click", selectorFunc);
 
@@ -15,7 +17,7 @@ function selectorFunc() {
 	document.getElementById("valid-ratio").style.display = "none";
 	label_button.className = "selector-button-clicked";
 	submit.className = "btn btn-primary btn-lg disabled";
-	submit.href = "#";
+	submit.href = "";
 	addon.port.emit("checked");
     } else {
 	addon.port.emit("unchecked");
@@ -68,18 +70,31 @@ addon.port.on("click-components", function(tabResult) {
 
     foreground = document.getElementById("edit-box-foreground");
     background = document.getElementById("edit-box-background");
-    component = document.getElementById("background-component");
-    
-    var backgroundIsTested = false;
-    if (component.checked === true) {
-	backgroundIsTested = true;
-    }
+    component = backgroundIsTested;
     
     var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + foreground.value + "&background=%23" + background.value + "&isBackgroundTested=" + backgroundIsTested + "&ratio= " + ratio + "&algo=HSV";
     
     submit.href = openUrl;
-
+    
 });
+
+var radios = document.forms["formulaire"].elements["component-modify"];
+for(var radio in radios) {
+    radios[radio].onclick = function() {
+	if (this.value === "background" && backgroundIsTested !== true) {
+	    backgroundIsTested = true;
+	    if (submit.href !== "") {
+		submit.href = submit.href.replace("false", backgroundIsTested);
+	    }
+	}
+	else if (this.value === "foreground" && backgroundIsTested !== false) {
+	    backgroundIsTested = false;
+	    if (submit.href !== "") {
+		submit.href = submit.href.replace("true", backgroundIsTested);
+	    }
+	}
+    }
+}
 
 addon.port.on("stop-selector", function() {
     selector.checked = false;
