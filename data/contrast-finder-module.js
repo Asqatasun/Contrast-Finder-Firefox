@@ -11,7 +11,6 @@ var handleClick = function (e) {
 	win.removeEventListener('mouseover', handleMouseover, false);
 	if (target !== null)
 	    target.style.border = lastElementStyle;
-	console.log("clicked element " + e.target || e.srcElement);
 	selector = false;
 	clickedElement = e.target || e.srcElement;
 	var bgColor = getNotTransparentColor(clickedElement);	
@@ -24,11 +23,19 @@ var handleClick = function (e) {
 	    var fontSize = getForegroundFontSize(clickedElement);
 	    var fontWeight = getForegroundFontWeight(clickedElement);
 	    computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
-	    var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
-		+ colorToHex(bgColor).toUpperCase() + ";"
-		+ computeRatio;
-	    var tabResult = stringResult.split(";");
-	    self.port.emit("click-refresh", tabResult);
+	    if (computeRatio == "valid") {
+		var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
+		    + colorToHex(bgColor).toUpperCase() + ";"
+		    + "valid-ratio";
+		var tabResult = stringResult.split(";");
+		self.port.emit("click-refresh", tabResult);
+	    } else {
+		var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
+		    + colorToHex(bgColor).toUpperCase() + ";"
+		    + computeRatio;
+		var tabResult = stringResult.split(";");
+		self.port.emit("click-refresh", tabResult);
+	    }
 	}
     }
 };
@@ -51,12 +58,8 @@ self.port.on("selector-checked", function() {
 	    } else if(computeRatio == "error-color") {
 		self.port.emit("over-refresh", "alpha-channel");
 	    }else {
-		var fontSize = getForegroundFontSize(target);
-		var fontWeight = getForegroundFontWeight(target);
-		computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
 		var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
-		    + colorToHex(bgColor).toUpperCase() + ";"
-		    + computeRatio;
+		    + colorToHex(bgColor).toUpperCase();
 		var tabResult = stringResult.split(";");
 		self.port.emit("over-refresh", tabResult);
 	    }
@@ -80,11 +83,11 @@ self.port.on("selector-unchecked", function() {
 
 function getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio) {
     if ((fontSize < 18 && fontWeight < 700 && computeRatio < 4.5) || (fontSize < 14 && fontWeight >= 700 && computeRatio < 4.5)) {
-	return 1;
+	return "4.5";
     } else if ((fontSize >= 18 && fontWeight < 700 && computeRatio < 3) || (fontSize >= 14 && fontWeight >= 700 && computeRatio < 3 )) {
-	return 0;
+	return "3";
     } else {
-	return 1;
+	return "valid";
     }
 }
 
@@ -106,7 +109,6 @@ function getLuminosity(color) {
     if (digits === null) {
 	return "error-color";
     }
-    console.log(digits);
     var red = parseInt(digits[2]);
     var green = parseInt(digits[3]);
     var blue = parseInt(digits[4]);

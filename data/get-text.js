@@ -1,9 +1,10 @@
 var foreground = document.getElementById("edit-box-foreground");
 var background = document.getElementById("edit-box-background");
-var ratio = document.getElementById("select-box-ratio");
 var component = document.getElementById("select-box-component");
 var selector = document.getElementById("selector");
-var coucou = document.getElementById("submit");
+var submit = document.getElementById("submit");
+var label_button = document.getElementById("label-selector");
+var ratio;
 
 selector.addEventListener("click", selectorFunc);
 
@@ -11,7 +12,10 @@ function selectorFunc() {
     if (selector.checked) {
 	document.getElementById("background-error").style.display = "none";
 	document.getElementById("channel-alpha").style.display = "none";
-	submit.style.display = "none";
+	document.getElementById("valid-ratio").style.display = "none";
+	label_button.className = "selector-button-clicked";
+	submit.className = "btn btn-primary btn-lg disabled";
+	submit.href = "#";
 	addon.port.emit("checked");
     } else {
 	addon.port.emit("unchecked");
@@ -21,66 +25,63 @@ function selectorFunc() {
 addon.port.on("live-components", function(tabResult) {
     document.getElementById("background-error").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
-    submit.style.display = "none";
+    document.getElementById("valid-ratio").style.display = "none";
     if(tabResult === "background-error") {
 	document.getElementById("background-error").style.display = "block";
 	foreground.value = "";
 	background.value = "";
-	ratio.selectedIndex = 0;
     } else if (tabResult == "alpha-channel") {
 	document.getElementById("channel-alpha").style.display = "block";
 	foreground.value = "";
 	background.value = "";
-	ratio.selectedIndex = 0;	
     } else {
 	foreground.value = tabResult[0];
 	background.value = tabResult[1];
-	ratio.selectedIndex = tabResult[2];
     }
 });
 
 addon.port.on("click-components", function(tabResult) {
     document.getElementById("background-error").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
+    document.getElementById("valid-ratio").style.display = "none";
+    label_button.className = "selector-button";
     if(tabResult === "background-error") {
 	document.getElementById("background-error").style.display = "block";
 	foreground.value = "";
 	background.value = "";
-	ratio.selectedIndex = 0;
     } else if (tabResult == "alpha-channel") {
 	document.getElementById("channel-alpha").style.display = "block";
 	foreground.value = "";
 	background.value = "";
-	ratio.selectedIndex = 0;
-    } else {
+    } else if (tabResult[2] == "valid-ratio") {
+	document.getElementById("valid-ratio").style.display = "block";
 	foreground.value = tabResult[0];
 	background.value = tabResult[1];
-	ratio.selectedIndex = tabResult[2];
+    } else {
+	submit.className = "btn btn-primary btn-lg";
+	foreground.value = tabResult[0];
+	background.value = tabResult[1];
+	ratio = tabResult[2];
     }
     selector.checked = false;
     addon.port.emit("unchecked");
 
     foreground = document.getElementById("edit-box-foreground");
     background = document.getElementById("edit-box-background");
-    ratio = document.getElementById("select-box-ratio");
-    component = document.getElementById("select-box-component");
+    component = document.getElementById("background-component");
     
     var backgroundIsTested = false;
-    var algo1 = document.getElementById("algo1");
-    var algo = "HSV";
-    if (algo1.checked != true) {
-	algo = "Rgb"
-    }
-    if (component.value == "background") {
+    if (component.checked === true) {
 	backgroundIsTested = true;
     }
     
-    var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + foreground.value + "&background=%23" + background.value + "&isBackgroundTested=" + backgroundIsTested + "&ratio=" + ratio.value + "&algo=" + algo;
-    submit.style.display = "block";
+    var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + foreground.value + "&background=%23" + background.value + "&isBackgroundTested=" + backgroundIsTested + "&ratio= " + ratio + "&algo=HSV";
+    
     submit.href = openUrl;
 
 });
 
 addon.port.on("stop-selector", function() {
     selector.checked = false;
+    label_button.className = "selector-button";
 });
