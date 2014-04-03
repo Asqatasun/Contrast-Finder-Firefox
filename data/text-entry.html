@@ -16,7 +16,7 @@
       }
 
       .valid-message {
-      color: #39b3d7;
+      color: #47A447;
       font-size: 18px;
       margin-top: 10px;
       margin-bottom: 10px;
@@ -89,18 +89,9 @@
 	  <input type="text" id="edit-box-background" class="form-control" required="required"/>
 	</div>
       </div>
-      <div class="gorm-group error-message" id="background-error">
-	<span>The background is an image</span>
-      </div>
-      <div class="form-group error-message" id="channel-alpha">
-	<span>The foreground or background color has an alpha channel</span>
-      </div>
-      <div class="form-group valid-message" id="valid-ratio">
-	<span>Your contrast ratio is valid !</span>
-      </div>
       <div class="form-group my-fieldset">
-	<fieldset>
-	  <legend>Component to modify</legend>
+	<fieldset id="fieldset-component" disabled="disabled">
+	  <legend id="legend-component">Component to modify</legend>
 	  <div class="radio">
 	    <label for="foreground-component">
 	      <input type="radio" name="component-modify" id="foreground-component" value="foreground" checked="checked">
@@ -117,6 +108,15 @@
       </div>
       <div class="form-group">
 	<a id="submit" class="btn btn-primary btn-lg disabled" href="" role="button">Get my results</a>
+      </div>
+      <div class="gorm-group error-message" id="background-error">
+	<span>The background is an image</span>
+      </div>
+      <div class="form-group error-message" id="channel-alpha">
+	<span>The foreground or background color has an alpha channel</span>
+      </div>
+      <div class="form-group valid-message" id="valid-ratio">
+	<span>Your contrast ratio is valid !</span>
       </div>
     </form>
     <script type="text/javascript" src="get-text.js"></script>
