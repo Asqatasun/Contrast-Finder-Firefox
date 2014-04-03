@@ -2,8 +2,28 @@ textarea {
     margin: 10px;
 }
 
+.bs-callout {
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+
+.bs-callout-warning {
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+
+.bs-callout-danger {
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+
+.bs-callout-success {
+    background-color: #f4f8fa;
+    border-color: #5bc0de;
+}
 .error-message {
-    color: red;
+    color: #be7104;
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -11,7 +31,15 @@ textarea {
 }
 
 .valid-message {
-    color: #47A447;
+    color: #4794AC;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.invalid-message {
+    color: #d9534f;
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 10px;

@@ -48,9 +48,7 @@ addon.port.on("click-components", function(tabResult) {
 	foreground.value = tabResult[0];
 	background.value = tabResult[1];
     } else {
-	document.getElementById("fieldset-component").disabled = false;
-	document.getElementById("legend-component").style.opacity = "1";
-	submit.className = "btn btn-primary btn-lg";
+	onInvalidRatio();
 	foreground.value = tabResult[0];
 	background.value = tabResult[1];
 	ratio = tabResult[2];
@@ -73,10 +71,18 @@ addon.port.on("click-components", function(tabResult) {
 
 function initializeHtmlElements() {
     document.getElementById("background-error").style.display = "none";
+    document.getElementById("invalid-ratio").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
     document.getElementById("valid-ratio").style.display = "none";
     document.getElementById("fieldset-component").disabled = true;
     document.getElementById("legend-component").style.opacity = "0.5";
+}
+
+function onInvalidRatio() {
+    document.getElementById("invalid-ratio").style.display = "block";
+    document.getElementById("fieldset-component").disabled = false;
+    document.getElementById("legend-component").style.opacity = "1";
+    submit.className = "btn btn-primary btn-lg";
 }
 
 function onBackgroundError() {

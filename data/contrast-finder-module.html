@@ -10,13 +10,16 @@
 	<input type="checkbox" name="selector" id="selector" value="selected"/>
       </div>
 
-      <div class="form-group error-message" id="background-error">
+      <div class="form-group bs-callout bs-callout-danger invalid-message" id="invalid-ratio">
+	<span>Your contrast ratio is invalid !</span>
+      </div>
+      <div class="form-group bs-callout bs-callout-warning error-message" id="background-error">
 	<span>The background is an image</span>
       </div>
-      <div class="form-group error-message" id="channel-alpha">
+      <div class="form-group bs-callout bs-callout-warning error-message" id="channel-alpha">
 	<span>The foreground or background color has an alpha channel</span>
       </div>
-      <div class="form-group valid-message" id="valid-ratio">
+      <div class="form-group bs-callout bs-callout-success valid-message" id="valid-ratio">
 	<span>Your contrast ratio is valid !</span>
       </div>
 
