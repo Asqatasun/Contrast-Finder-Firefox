@@ -209,7 +209,7 @@ self.on("click", function(node, data) {
             window.location.href = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + colorToHex(getForegroundColor(node)) + "&background=%23" + colorToHex(bgColor) + "&isBackgroundTested=" + data + "&ratio=3&algo=HSV";
 	}
 	else {
-            alert("The contrast is valid (" + (ratio * 100000) / 100000 + " > 4.5).\nYour ratio is " + Math.round(ratio * 100000) / 100000 + "\nColors found : #" + colorToHex(getForegroundColor(node)) + " (foreground) / #" + colorToHex(bgColor) + " (background)");
+	    alert("Hey, contrast is already OK !\nForeground: #" + colorToHex(getForegroundColor(node)).toUpperCase() + "\nBackground #" + colorToHex(bgColor).toUpperCase());
         }
     }
 });
