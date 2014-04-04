@@ -19,8 +19,8 @@ textarea {
 }
 
 .bs-callout-success {
-    background-color: #f4f8fa;
-    border-color: #5bc0de;
+    background-color: #DFF0D8;
+    border-color: #3C763D;
 }
 .error-message {
     color: #be7104;
@@ -31,7 +31,7 @@ textarea {
 }
 
 .valid-message {
-    color: #4794AC;
+    color: #3C763D;
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 10px;

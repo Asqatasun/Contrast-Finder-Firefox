@@ -122,3 +122,8 @@ addon.port.on("stop-selector", function() {
     selector.checked = false;
     label_button.className = "selector-button";
 });
+
+addon.port.on("start-selector-button", function() {
+    selector.checked = true;
+    label_button.className = "selector-button-clicked";
+});
