@@ -1,6 +1,5 @@
 var foreground = document.getElementById("edit-box-foreground");
 var background = document.getElementById("edit-box-background");
-var component = document.getElementById("");
 var selector = document.getElementById("selector");
 var submit = document.getElementById("submit");
 var label_button = document.getElementById("label-selector");
@@ -24,6 +23,8 @@ function selectorFunc() {
 
 addon.port.on("live-components", function(tabResult) {
     document.getElementById("background-error").style.display = "none";
+    document.getElementById("color-sample-foreground").style.backgroundColor = "transparent";
+    document.getElementById("color-sample-background").style.backgroundColor = "transparent";
     document.getElementById("channel-alpha").style.display = "none";
     document.getElementById("valid-ratio").style.display = "none";
     if(tabResult === "background-error") {
@@ -31,8 +32,10 @@ addon.port.on("live-components", function(tabResult) {
     } else if (tabResult == "alpha-channel") {
 	onChannelAlphaError();
     } else {
-	foreground.value = tabResult[0];
-	background.value = tabResult[1];
+	document.getElementById("color-sample-foreground").style.backgroundColor = "#" + tabResult[0];
+	document.getElementById("color-sample-background").style.backgroundColor = "#" + tabResult[1];
+	foreground.innerHTML = "#" + tabResult[0];
+	background.innerHTML = "#" + tabResult[1];
     }
 });
 
@@ -45,12 +48,12 @@ addon.port.on("click-components", function(tabResult) {
 	onChannelAlphaError();
     } else if (tabResult[2] == "valid-ratio") {
 	document.getElementById("valid-ratio").style.display = "block";
-	foreground.value = tabResult[0];
-	background.value = tabResult[1];
+	foreground.innerHTML = "#" + tabResult[0];
+	background.innerHTML = "#" + tabResult[1];
     } else {
 	onInvalidRatio();
-	foreground.value = tabResult[0];
-	background.value = tabResult[1];
+	foreground.innerHTML = "#" + tabResult[0];
+	background.innerHTML = "#" + tabResult[1];
 	ratio = tabResult[2];
     }
     selector.checked = false;
@@ -61,7 +64,7 @@ addon.port.on("click-components", function(tabResult) {
     component = backgroundIsTested;
     
     var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23"
-	+ foreground.value + "&background=%23" + background.value
+	+ foreground.innerHTML.replace("#", "") + "&background=%23" + background.innerHTML.replace("#", "")
 	+ "&isBackgroundTested=" + backgroundIsTested + "&ratio= "
 	+ ratio + "&algo=HSV";
     

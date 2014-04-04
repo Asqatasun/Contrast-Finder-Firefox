@@ -6,7 +6,7 @@
   <body class="container">
     <form name="formulaire" role="form">
       <div class="form-group selector">
-	<label for="selector" id="label-selector" class="selector-button" >Select element</label>
+	<label for="selector" id="label-selector" class="selector-button">Select element</label>
 	<input type="checkbox" name="selector" id="selector" value="selected"/>
       </div>
 
@@ -22,39 +22,44 @@
       <div class="form-group bs-callout bs-callout-success valid-message" id="valid-ratio">
 	<span>Your contrast ratio is valid !</span>
       </div>
-
+      
       <div class="form-group">
-	<div>
-	  <label for="edit-box-foreground">Foreground</label>
-	  <input type="text" id="edit-box-foreground" class="form-control" required="required"/>
-	</div>
-      </div>
-      <div class="form-group separator">
-	<div>
-	  <label for="edit-box-background">Background</label>
-	  <input type="text" id="edit-box-background" style="margin-bottom:25px;"class="form-control" required="required"/>
-	</div>
-      </div>
-      <div class="form-group my-fieldset">
-	<fieldset id="fieldset-component" disabled="disabled">
-	  <legend id="legend-component">Component to modify</legend>
-	  <div class="radio">
-	    <label for="foreground-component">
-	      <input type="radio" name="component-modify" id="foreground-component" value="foreground" checked="checked">
-	      Edit the foreground
-	    </label>
+	<div style="padding-bottom:10px;">
+	  Foreground :
+	  <div>
+	    <div id="color-sample-foreground" class="color-sample">
+	      <span class="hexa-value" id="edit-box-foreground"/>
+	    </div>
 	  </div>
-	  <div class="radio">
-	    <label for="background-component">
-	      <input type="radio" name="component-modify" id="background-component" value="background">
-	      Edit the background
-	    </label>
+	</div>
+	<div style="padding-bottom:20px;">
+	  Background :
+	  <div>
+	    <div id="color-sample-background" class="color-sample">
+	      <span class="hexa-value" id="edit-box-background"/>
+	    </div>
 	  </div>
-	</fieldset>
-      </div>
-      <div class="form-group">
-	<a id="submit" class="btn btn-primary btn-lg disabled" href="" role="button">Get my results</a>
-      </div>
+	</div>
+	<div class="form-group my-fieldset">
+	  <fieldset id="fieldset-component" disabled="disabled">
+	    <legend id="legend-component">Component to modify</legend>
+	    <div class="radio">
+	      <label for="foreground-component">
+		<input type="radio" name="component-modify" id="foreground-component" value="foreground" checked="checked">
+		Edit the foreground
+	      </label>
+	    </div>
+	    <div class="radio">
+	      <label for="background-component">
+		<input type="radio" name="component-modify" id="background-component" value="background">
+		Edit the background
+	      </label>
+	    </div>
+	  </fieldset>
+	</div>
+	<div class="form-group">
+	  <a id="submit" class="btn btn-primary btn-lg" href="" role="button">Get my results</a>
+	</div>
     </form>
     <script type="text/javascript" src="js/form.js"></script>
   </body>

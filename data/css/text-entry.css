@@ -2,6 +2,18 @@ textarea {
     margin: 10px;
 }
 
+.color-sample {
+border: solid 1px #CCC;
+width: 50%;
+height: 20px;
+border-radius: .3em;
+margin-right: 5px;
+}
+
+.hexa-value {
+    padding-left:110%;
+}
+
 .bs-callout {
     margin: 20px 0;
     padding: 20px;
