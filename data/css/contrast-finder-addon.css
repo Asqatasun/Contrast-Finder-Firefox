@@ -3,7 +3,7 @@ body {
 }
 
 #main {
-    margin: 7px;
+    margin: 1em 7px 0;
 }
 
 .one-color {
@@ -29,13 +29,17 @@ background-image: repeating-linear-gradient(45deg, transparent, transparent 15px
     font-family: monospace;
 }
 
+.cf-block {
+    margin-bottom: 2em;
+}
+
 .cf-message {
     min-height: 3em;
 }
 
 .bs-callout {
-    margin: 20px 0;
-    padding: 20px;
+    margin: 10px 0;
+    padding: 10px;
     border-left: 3px solid #eee;
 }
 
