@@ -1,0 +1,138 @@
+body {
+    padding:0;
+}
+
+#main {
+    margin: 7px;
+}
+
+.one-color {
+    padding-bottom: 10px; 
+}
+
+textarea {
+    margin: 10px;
+}
+
+.color-sample {
+border: solid 1px #CCC;
+width: 50%;
+height: 20px;
+border-radius: .3em;
+margin-right: 5px;
+background-color: #f0f0f0;
+background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px);
+}
+
+.hexa-value {
+    padding-left:110%;
+    font-family: monospace;
+}
+
+.cf-message {
+    min-height: 3em;
+}
+
+.bs-callout {
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+
+.bs-callout-warning {
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+
+.bs-callout-danger {
+    background-color: #fdf7f7;
+    border-color: #d9534f;
+}
+
+.bs-callout-success {
+    background-color: #DFF0D8;
+    border-color: #3C763D;
+}
+.error-message {
+    color: #be7104;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.valid-message {
+    color: #3C763D;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.invalid-message {
+    color: #d9534f;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+#submit {
+    width: 100%;
+}
+
+.my-fieldset legend {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 0px;
+    opacity:0.5;
+}
+
+.my-fieldset fieldset {
+    padding: 0px;
+    margin: 0px;
+    border: 0px none;
+    min-width: 0px;
+}
+
+.selector {
+    background-color: #CCCBCA;
+}
+
+.selector label {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.separator {
+    margin-top:15px;
+    margin-bottom:30px;
+    border-bottom: 1px dotted #000;
+}
+
+#selector {
+    margin-left: 20px;
+    -moz-transform: scale(1.5);
+}
+
+.selector-button {
+    background-image:url("../images/button-selector2.png");
+    background-repeat:no-repeat;
+    background-size:50px;
+      }
+
+.selector-button-clicked {
+    background-image:url("../images/button-selector-click2.jpg");
+    background-repeat:no-repeat;
+    background-size:50px;
+}
+
+#link-cf-website {
+    margin: 1em 0 1em 0;
+    text-align: center;
+}
+
+#on-invalid-ratio{
+    display: none;
+}

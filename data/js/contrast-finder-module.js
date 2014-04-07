@@ -50,7 +50,7 @@ self.port.on("selector-checked", function() {
 	    }
 	    target = e.target || e.srcElement;
 	    lastElementStyle = target.style.border;
-	    target.style.border= "groove #98bf21";
+	    target.style.border= "solid #F07D4E";
 	    var bgColor = getNotTransparentColor(target);
 	    var computeRatio = getContrastRatio(getForegroundColor(target), bgColor);
 	    if (bgColor == 'error') {
