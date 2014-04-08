@@ -10,20 +10,25 @@
         <input type="checkbox" name="selector" id="selector" value="selected"/>
                 <label for="selector" id="label-selector" class="">Element selector</label>
       </div>
-      <div id="main">
-        <div id="cf-colors" class="cf-block">
+
+      <div id="main">        
+	<div id="cf-colors" class="cf-block">
           <div class="one-color">
             Foreground :
             <div id="color-sample-foreground" class="color-sample">
               <span class="hexa-value" id="edit-box-foreground">#------</span>
             </div>
-          </div>
-	  
+          </div>	  
           <div class="one-color">
             Background :
             <div id="color-sample-background" class="color-sample">
               <span class="hexa-value" id="edit-box-background">#------</span>
             </div>
+          </div>
+	  
+	  <div class="one-color">
+            Element :
+              <span id="element-targeted"></span>
           </div>
         </div>
 	
@@ -42,9 +47,9 @@
           </div>
         </div>
 	
-        <div id="on-invalid-ratio" class="cf-block">
+        <div class="cf-block">
           <div class="my-fieldset">
-            <fieldset id="fieldset-component">
+            <fieldset id="fieldset-component" disabled="disabled">
               <legend id="legend-component">Component to modify</legend>
               <div class="radio">
                 <label for="foreground-component">
@@ -61,8 +66,8 @@
             </fieldset>
           </div>
 	  
-          <div id="cf-link-to-solutions" class="cf-block">
-            <strong><a id="submit" class="btn btn-primary btn-lg" href="" role="button" title="Find valid colors (brings you to Tanaguru Contrast-Finder website)">Find valid colors</a></strong>
+          <div id="cf-link-to-solutions" class="cf-block cf-link-to-solutions-disabled">
+            <strong><a id="submit" class="btn btn-gray btn-lg disabled" href="" role="button" title="Find valid colors (brings you to Tanaguru Contrast-Finder website)">Find valid colors</a></strong>
           </div>
         </div>
 	

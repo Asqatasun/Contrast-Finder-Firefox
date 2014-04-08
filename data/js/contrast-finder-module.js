@@ -45,26 +45,34 @@ self.port.on("selector-unchecked", function() {
 
 function getResultAndEmit(elem, emitString) {
     var bgColor = getNotTransparentColor(elem);	
+    var stringResult;
+    var tabResult;
     var computeRatio = getContrastRatio(getForegroundColor(elem), bgColor);
     if (bgColor == 'error') {
-	self.port.emit(emitString, "background-error");
+	stringResult = emitString + ";" + elem.tagName;
+	tabResult = stringResult.split(";");
+	self.port.emit(tabResult, "background-error");
     } else if(computeRatio == "error-color") {
-	self.port.emit(emitString, "alpha-channel");
+	stringResult = emitString + ";" + elem.tagName;
+	tabResult = stringResult.split(";");
+	self.port.emit(tabResult, "alpha-channel");
     }else {
 	var fontSize = getForegroundFontSize(elem);
 	var fontWeight = getForegroundFontWeight(elem);
 	computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
 	if (computeRatio == "valid") {
-	    var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
+	    stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
 		+ colorToHex(bgColor).toUpperCase() + ";"
-		+ "valid-ratio";
-	    var tabResult = stringResult.split(";");
+		+ "valid-ratio" + ";"
+		+ elem.tagName;
+	    tabResult = stringResult.split(";");
 	    self.port.emit(emitString, tabResult);
 	} else {
-	    var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
+	    stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
 		+ colorToHex(bgColor).toUpperCase() + ";"
-		+ computeRatio;
-	    var tabResult = stringResult.split(";");
+		+ computeRatio + ";"
+		+ elem.tagName;
+	    tabResult = stringResult.split(";");
 	    self.port.emit(emitString, tabResult);
 	}
     }

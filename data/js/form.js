@@ -1,12 +1,11 @@
 var foreground = document.getElementById("edit-box-foreground");
 var background = document.getElementById("edit-box-background");
+var element = document.getElementById("element-targeted");
 var wrongRatio = document.getElementById("on-invalid-ratio");
 var selector = document.getElementById("selector");
 var submit = document.getElementById("submit");
-var label_button = document.getElementById("label-selector");
 var backgroundIsTested = false;
 var ratio;
-
 
 selector.addEventListener("click", selectorFunc);
 
@@ -15,6 +14,7 @@ function selectorFunc() {
 	initializeHtmlElements();
 	initializeColorSamplesElements();
 	submit.href = "";
+	submit.className = "btn btn-gray btn-lg disabled";
 	addon.port.emit("checked");
     } else {
 	addon.port.emit("unchecked");
@@ -25,9 +25,9 @@ addon.port.on("live-components", function(tabResult) {
     initializeHtmlElements();
     initializeColorSamplesElements();
 
-    if (tabResult === "background-error")
+    if (tabResult[0] === "background-error")
 	onBackgroundError();
-    else if (tabResult == "alpha-channel")
+    else if (tabResult[0] == "alpha-channel")
 	onChannelAlphaError();
     else if (tabResult[2] == "valid-ratio")
 	onValidRatio(tabResult);
@@ -37,9 +37,9 @@ addon.port.on("live-components", function(tabResult) {
 
 addon.port.on("click-components", function(tabResult) {
     initializeHtmlElements();
-    if (tabResult === "background-error") {
+    if (tabResult[0] === "background-error") {
 	onBackgroundError();
-    } else if (tabResult == "alpha-channel") {
+    } else if (tabResult[0] == "alpha-channel") {
 	onChannelAlphaError();
     } else if (tabResult[2] == "valid-ratio") {
 	onValidRatio(tabResult);
@@ -60,6 +60,7 @@ addon.port.on("click-components", function(tabResult) {
 });
 
 function initializeColorSamplesElements() {
+    document.getElementById("legend-component").style.opacity = "0.5";
     document.getElementById("color-sample-foreground").style.backgroundColor = "#F0F0F0";
     document.getElementById("color-sample-foreground").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
     document.getElementById("color-sample-background").style.backgroundColor = "#F0F0F0";
@@ -67,7 +68,6 @@ function initializeColorSamplesElements() {
 }
 
 function initializeHtmlElements() {
-    document.getElementById("on-invalid-ratio").style.display = "none";
     document.getElementById("background-error").style.display = "none";
     document.getElementById("invalid-ratio").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
@@ -87,9 +87,11 @@ function onLiveInvalidRatio(tabResult) {
 }
 
 function onClickInvalidRatio(tabResult) {
+    document.getElementById("legend-component").style.opacity = "1";
+    document.getElementById("fieldset-component").disabled = false;
     document.getElementById("invalid-ratio").style.display = "block";
+    submit.className = "btn btn-primary btn-lg";
     setForegroundAndBackgroundValue(tabResult);
-    document.getElementById("on-invalid-ratio").style.display = "block";
     ratio = tabResult[2];
 }
 function onBackgroundError() {
@@ -113,6 +115,7 @@ function setColorSamplesElements(tabResult) {
 function setForegroundAndBackgroundValue(tabResult) {
     foreground.textContent = "#" + tabResult[0];
     background.textContent = "#" + tabResult[1];
+    element.textContent = "<" + tabResult[3].toLowerCase() + ">";
 }
 
 function dropForegroundAndBackgroundValue() {
