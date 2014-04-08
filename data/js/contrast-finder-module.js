@@ -13,30 +13,7 @@ var handleClick = function (e) {
 	    target.style.border = lastElementStyle;
 	selector = false;
 	clickedElement = e.target || e.srcElement;
-	var bgColor = getNotTransparentColor(clickedElement);	
-	var computeRatio = getContrastRatio(getForegroundColor(clickedElement), bgColor);
-	if (bgColor == 'error') {
-	    self.port.emit("click-refresh", "background-error");
-	} else if(computeRatio == "error-color") {
-	    self.port.emit("click-refresh", "alpha-channel");
-	}else {
-	    var fontSize = getForegroundFontSize(clickedElement);
-	    var fontWeight = getForegroundFontWeight(clickedElement);
-	    computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
-	    if (computeRatio == "valid") {
-		var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
-		    + colorToHex(bgColor).toUpperCase() + ";"
-		    + "valid-ratio";
-		var tabResult = stringResult.split(";");
-		self.port.emit("click-refresh", tabResult);
-	    } else {
-		var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
-		    + colorToHex(bgColor).toUpperCase() + ";"
-		    + computeRatio;
-		var tabResult = stringResult.split(";");
-		self.port.emit("click-refresh", tabResult);
-	    }
-	}
+	getResultAndEmit(clickedElement, "click-refresh");
     }
 };
 
@@ -51,24 +28,13 @@ self.port.on("selector-checked", function() {
 	    target = e.target || e.srcElement;
 	    lastElementStyle = target.style.border;
 	    target.style.border= "solid #F07D4E";
-	    var bgColor = getNotTransparentColor(target);
-	    var computeRatio = getContrastRatio(getForegroundColor(target), bgColor);
-	    if (bgColor == 'error') {
-		self.port.emit("over-refresh", "background-error");
-	    } else if(computeRatio == "error-color") {
-		self.port.emit("over-refresh", "alpha-channel");
-	    }else {
-		var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
-		    + colorToHex(bgColor).toUpperCase();
-		var tabResult = stringResult.split(";");
-		self.port.emit("over-refresh", tabResult);
-	    }
+	    getResultAndEmit(target, "over-refresh");
 	}
     };
     win.removeEventListener('click', handleClick, false);
     win.addEventListener('mouseover', handleMouseover, false);
 });
-
+	     
 self.port.on("selector-unchecked", function() {
     selector = false;
     win.removeEventListener('mouseover', handleMouseover, false);
@@ -76,6 +42,33 @@ self.port.on("selector-unchecked", function() {
     if (target !== null)
 	target.style.border = lastElementStyle;
 });
+
+function getResultAndEmit(elem, emitString) {
+    var bgColor = getNotTransparentColor(elem);	
+    var computeRatio = getContrastRatio(getForegroundColor(elem), bgColor);
+    if (bgColor == 'error') {
+	self.port.emit(emitString, "background-error");
+    } else if(computeRatio == "error-color") {
+	self.port.emit(emitString, "alpha-channel");
+    }else {
+	var fontSize = getForegroundFontSize(elem);
+	var fontWeight = getForegroundFontWeight(elem);
+	computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
+	if (computeRatio == "valid") {
+	    var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
+		+ colorToHex(bgColor).toUpperCase() + ";"
+		+ "valid-ratio";
+	    var tabResult = stringResult.split(";");
+	    self.port.emit(emitString, tabResult);
+	} else {
+	    var stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
+		+ colorToHex(bgColor).toUpperCase() + ";"
+		+ computeRatio;
+	    var tabResult = stringResult.split(";");
+	    self.port.emit(emitString, tabResult);
+	}
+    }
+}
 
 /********************************************************************/
 // Compute the contrast ratio functions

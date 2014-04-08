@@ -13,11 +13,7 @@ selector.addEventListener("click", selectorFunc);
 function selectorFunc() {
     if (selector.checked) {
 	initializeHtmlElements();
-	submit.className = "btn btn-primary btn-lg disabled";
-	document.getElementById("color-sample-foreground").style.backgroundColor = "#F0F0F0";
-	document.getElementById("color-sample-foreground").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
-	document.getElementById("color-sample-background").style.backgroundColor = "#F0F0F0";
-	document.getElementById("color-sample-background").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
+	initializeColorSamplesElements();
 	submit.href = "";
 	addon.port.emit("checked");
     } else {
@@ -26,55 +22,35 @@ function selectorFunc() {
 }
 
 addon.port.on("live-components", function(tabResult) {
-    document.getElementById("on-invalid-ratio").style.display = "none";
-    document.getElementById("background-error").style.display = "none";
-    document.getElementById("color-sample-foreground").style.backgroundColor = "#F0F0F0";
-    document.getElementById("color-sample-foreground").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
-    document.getElementById("color-sample-background").style.backgroundColor = "#F0F0F0";
-    document.getElementById("color-sample-background").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
-    document.getElementById("channel-alpha").style.display = "none";
-    document.getElementById("valid-ratio").style.display = "none";
-    
-    if(tabResult === "background-error") {
+    initializeHtmlElements();
+    initializeColorSamplesElements();
+
+    if (tabResult === "background-error")
 	onBackgroundError();
-	foreground.innerHTML = "#------";
-	background.innerHTML = "#------";
-    } else if (tabResult == "alpha-channel") {
+    else if (tabResult == "alpha-channel")
 	onChannelAlphaError();
-	foreground.innerHTML = "#------";
-	background.innerHTML = "#------";
-    } else {
-	document.getElementById("color-sample-foreground").style.backgroundColor = "#" + tabResult[0]
-;
-	document.getElementById("color-sample-foreground").style.backgroundImage = "none";
-	document.getElementById("color-sample-background").style.backgroundColor = "#" + tabResult[1];
-	document.getElementById("color-sample-background").style.backgroundImage = "none";
-	foreground.innerHTML = "#" + tabResult[0];
-	background.innerHTML = "#" + tabResult[1];
-    }
+    else if (tabResult[2] == "valid-ratio")
+	onValidRatio(tabResult);
+    else
+	onLiveInvalidRatio(tabResult);
 });
 
 addon.port.on("click-components", function(tabResult) {
     initializeHtmlElements();
-    if(tabResult === "background-error") {
+    if (tabResult === "background-error") {
 	onBackgroundError();
     } else if (tabResult == "alpha-channel") {
 	onChannelAlphaError();
     } else if (tabResult[2] == "valid-ratio") {
-	document.getElementById("valid-ratio").style.display = "block";
-	foreground.innerHTML = "#" + tabResult[0];
-	background.innerHTML = "#" + tabResult[1];
+	onValidRatio(tabResult);
     } else {
-	onInvalidRatio();
-	foreground.innerHTML = "#" + tabResult[0];
-	background.innerHTML = "#" + tabResult[1];
-	ratio = tabResult[2];
+	onClickInvalidRatio(tabResult);
     }
+
     selector.checked = false;
     addon.port.emit("unchecked");
-
-    foreground = document.getElementById("edit-box-foreground");
-    background = document.getElementById("edit-box-background");
+/*    foreground = document.getElementById("edit-box-foreground");
+    background = document.getElementById("edit-box-background");*/
     component = backgroundIsTested;
     
     var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23"
@@ -85,6 +61,12 @@ addon.port.on("click-components", function(tabResult) {
     submit.href = openUrl;    
 });
 
+function initializeColorSamplesElements() {
+    document.getElementById("color-sample-foreground").style.backgroundColor = "#F0F0F0";
+    document.getElementById("color-sample-foreground").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
+    document.getElementById("color-sample-background").style.backgroundColor = "#F0F0F0";
+    document.getElementById("color-sample-background").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
+}
 
 function initializeHtmlElements() {
     document.getElementById("on-invalid-ratio").style.display = "none";
@@ -92,18 +74,26 @@ function initializeHtmlElements() {
     document.getElementById("invalid-ratio").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
     document.getElementById("valid-ratio").style.display = "none";
-    document.getElementById("fieldset-component").disabled = true;
-    document.getElementById("legend-component").style.opacity = "0.5";
 }
 
-function onInvalidRatio() {
-    document.getElementById("on-invalid-ratio").style.display = "block";
+function onValidRatio(tabResult) {
+    setColorSamplesElements(tabResult);
+    document.getElementById("valid-ratio").style.display = "block";
+    setForegroundAndBackgroundValue(tabResult);
+}
+
+function onLiveInvalidRatio(tabResult) {
+    setColorSamplesElements(tabResult);
     document.getElementById("invalid-ratio").style.display = "block";
-    document.getElementById("fieldset-component").disabled = false;
-    document.getElementById("legend-component").style.opacity = "1";
-    submit.className = "btn btn-primary btn-lg";
+    setForegroundAndBackgroundValue(tabResult);
 }
 
+function onClickInvalidRatio(tabResult) {
+    document.getElementById("invalid-ratio").style.display = "block";
+    setForegroundAndBackgroundValue(tabResult);
+    document.getElementById("on-invalid-ratio").style.display = "block";
+    ratio = tabResult[2];
+}
 function onBackgroundError() {
     document.getElementById("background-error").style.display = "block";
     dropForegroundAndBackgroundValue();
@@ -114,9 +104,22 @@ function onChannelAlphaError() {
     dropForegroundAndBackgroundValue();
 }
 
+function setColorSamplesElements(tabResult) {
+    document.getElementById("color-sample-foreground").style.backgroundColor = "#" + tabResult[0]
+    ;
+    document.getElementById("color-sample-foreground").style.backgroundImage = "none";
+    document.getElementById("color-sample-background").style.backgroundColor = "#" + tabResult[1];
+    document.getElementById("color-sample-background").style.backgroundImage = "none";
+}
+
+function setForegroundAndBackgroundValue(tabResult) {
+    foreground.innerHTML = "#" + tabResult[0];
+    background.innerHTML = "#" + tabResult[1];
+}
+
 function dropForegroundAndBackgroundValue() {
-    foreground.value = "";
-    background.value = "";
+    foreground.innerHTML = "#------";
+    background.innerHTML = "#------";
 }
 
 var radios = document.forms["formulaire"].elements["component-modify"];

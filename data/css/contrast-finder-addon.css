@@ -1,5 +1,11 @@
-body {
+html, body {
+    margin:0;
     padding:0;
+    height:100%;
+}
+
+a {
+    color : #3173BD;
 }
 
 #main {
@@ -82,14 +88,13 @@ background-image: repeating-linear-gradient(45deg, transparent, transparent 15px
 }
 
 #submit {
+    margin-top: 30px;
     width: 100%;
 }
 
 .my-fieldset legend {
-    font-weight: bold;
     font-size: 14px;
     margin-bottom: 0px;
-    opacity:0.5;
 }
 
 .my-fieldset fieldset {
@@ -106,34 +111,19 @@ background-image: repeating-linear-gradient(45deg, transparent, transparent 15px
 .selector label {
     margin-bottom: 10px;
     margin-top: 10px;
-    padding-left: 20px;
-}
-
-.separator {
-    margin-top:15px;
-    margin-bottom:30px;
-    border-bottom: 1px dotted #000;
+    padding-left: 7px;
 }
 
 #selector {
-    margin-left: 20px;
+    margin-left: 10px;
     -moz-transform: scale(1.5);
 }
 
-.selector-button {
-    background-image:url("../images/button-selector2.png");
-    background-repeat:no-repeat;
-    background-size:50px;
-      }
-
-.selector-button-clicked {
-    background-image:url("../images/button-selector-click2.jpg");
-    background-repeat:no-repeat;
-    background-size:50px;
-}
-
 #link-cf-website {
-    margin: 1em 0 1em 0;
+    position:absolute;
+    bottom:0;
+    width:97%;
+    height:60px;
     text-align: center;
 }
 
