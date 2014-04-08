@@ -49,12 +49,10 @@ addon.port.on("click-components", function(tabResult) {
 
     selector.checked = false;
     addon.port.emit("unchecked");
-/*    foreground = document.getElementById("edit-box-foreground");
-    background = document.getElementById("edit-box-background");*/
     component = backgroundIsTested;
     
     var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23"
-	+ foreground.innerHTML.replace("#", "") + "&background=%23" + background.innerHTML.replace("#", "")
+	+ foreground.textContent.replace("#", "") + "&background=%23" + background.textContent.replace("#", "")
 	+ "&isBackgroundTested=" + backgroundIsTested + "&ratio= "
 	+ ratio + "&algo=HSV";
     
@@ -113,13 +111,13 @@ function setColorSamplesElements(tabResult) {
 }
 
 function setForegroundAndBackgroundValue(tabResult) {
-    foreground.innerHTML = "#" + tabResult[0];
-    background.innerHTML = "#" + tabResult[1];
+    foreground.textContent = "#" + tabResult[0];
+    background.textContent = "#" + tabResult[1];
 }
 
 function dropForegroundAndBackgroundValue() {
-    foreground.innerHTML = "#------";
-    background.innerHTML = "#------";
+    foreground.textContent = "#------";
+    background.textContent = "#------";
 }
 
 var radios = document.forms["formulaire"].elements["component-modify"];
