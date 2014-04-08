@@ -35,6 +35,10 @@ textarea {
     font-family: monospace;
 }
 
+#element {
+   margin-bottom: 10px;
+}
+
 #element-targeted {
     font-family: monospace;
 }
@@ -43,12 +47,12 @@ textarea {
     margin-bottom: 2em;
 }
 
-.cf-message {
-    min-height: 3em;
+#cf-messages {
+    min-height: 12em;
 }
 
 .bs-callout {
-    margin: 10px 0;
+    margin: 0 0;
     padding: 10px;
     border-left: 3px solid #eee;
 }
@@ -70,29 +74,28 @@ textarea {
 .error-message {
     color: #be7104;
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+//    margin-top: 10px;
+  //  margin-bottom: 10px;
     display: none;
 }
 
 .valid-message {
     color: #3C763D;
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    //margin-top: 10px;
+    //margin-bottom: 10px;
     display: none;
 }
 
 .invalid-message {
     color: #d9534f;
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    //margin-top: 10px;
+    //margin-bottom: 10px;
     display: none;
 }
 
 #submit {
- //   color: #000;
     margin-top: 30px;
     width: 100%;
 }

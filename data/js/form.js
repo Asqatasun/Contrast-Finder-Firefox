@@ -26,9 +26,9 @@ addon.port.on("live-components", function(tabResult) {
     initializeColorSamplesElements();
 
     if (tabResult[0] === "background-error")
-	onBackgroundError();
+	onBackgroundError(tabResult);
     else if (tabResult[0] == "alpha-channel")
-	onChannelAlphaError();
+	onChannelAlphaError(tabResult);
     else if (tabResult[2] == "valid-ratio")
 	onValidRatio(tabResult);
     else
@@ -38,9 +38,9 @@ addon.port.on("live-components", function(tabResult) {
 addon.port.on("click-components", function(tabResult) {
     initializeHtmlElements();
     if (tabResult[0] === "background-error") {
-	onBackgroundError();
+	onBackgroundError(tabResult);
     } else if (tabResult[0] == "alpha-channel") {
-	onChannelAlphaError();
+	onChannelAlphaError(tabResult);
     } else if (tabResult[2] == "valid-ratio") {
 	onValidRatio(tabResult);
     } else {
@@ -94,14 +94,16 @@ function onClickInvalidRatio(tabResult) {
     setForegroundAndBackgroundValue(tabResult);
     ratio = tabResult[2];
 }
-function onBackgroundError() {
+function onBackgroundError(tabResult) {
     document.getElementById("background-error").style.display = "block";
     dropForegroundAndBackgroundValue();
+    element.textContent = "<" + tabResult[1].toLowerCase() + ">";
 }
 
-function onChannelAlphaError() {
+function onChannelAlphaError(tabResult) {
     document.getElementById("channel-alpha").style.display = "block";
     dropForegroundAndBackgroundValue();
+    element.textContent = "<" + tabResult[1].toLowerCase() + ">";
 }
 
 function setColorSamplesElements(tabResult) {

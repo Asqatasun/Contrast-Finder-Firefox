@@ -45,17 +45,17 @@ self.port.on("selector-unchecked", function() {
 
 function getResultAndEmit(elem, emitString) {
     var bgColor = getNotTransparentColor(elem);	
-    var stringResult;
-    var tabResult;
+    var stringResult = null;
+    var tabResult = null;
     var computeRatio = getContrastRatio(getForegroundColor(elem), bgColor);
     if (bgColor == 'error') {
-	stringResult = emitString + ";" + elem.tagName;
+	stringResult = "background-error" + ";" + elem.tagName;
 	tabResult = stringResult.split(";");
-	self.port.emit(tabResult, "background-error");
+	self.port.emit(emitString, tabResult);
     } else if(computeRatio == "error-color") {
-	stringResult = emitString + ";" + elem.tagName;
+	stringResult = "alpha-channel" + ";" + elem.tagName;
 	tabResult = stringResult.split(";");
-	self.port.emit(tabResult, "alpha-channel");
+	self.port.emit(emitString, tabResult);
     }else {
 	var fontSize = getForegroundFontSize(elem);
 	var fontWeight = getForegroundFontWeight(elem);
