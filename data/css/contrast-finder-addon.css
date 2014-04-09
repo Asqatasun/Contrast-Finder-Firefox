@@ -107,6 +107,10 @@ a {
     margin-bottom: 0px;
 }
 
+.my-fieldset span {
+    opacity: 0.5;
+}
+
 .my-fieldset fieldset {
     padding: 0px;
     margin: 0px;

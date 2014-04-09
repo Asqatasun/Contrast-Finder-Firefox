@@ -61,6 +61,8 @@ addon.port.on("click-components", function(tabResult) {
 
 function initializeColorSamplesElements() {
     document.getElementById("legend-component").style.opacity = "0.5";
+    document.getElementById("foreground-component-text").style.opacity = "0.5";
+    document.getElementById("background-component-text").style.opacity = "0.5";
     document.getElementById("color-sample-foreground").style.backgroundColor = "#F0F0F0";
     document.getElementById("color-sample-foreground").style.backgroundImage = "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px)";
     document.getElementById("color-sample-background").style.backgroundColor = "#F0F0F0";
@@ -88,6 +90,8 @@ function onLiveInvalidRatio(tabResult) {
 
 function onClickInvalidRatio(tabResult) {
     document.getElementById("legend-component").style.opacity = "1";
+    document.getElementById("foreground-component-text").style.opacity = "1";
+    document.getElementById("background-component-text").style.opacity = "1";
     document.getElementById("fieldset-component").disabled = false;
     document.getElementById("invalid-ratio").style.display = "block";
     submit.className = "btn btn-primary btn-lg";
