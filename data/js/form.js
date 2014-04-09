@@ -61,6 +61,7 @@ addon.port.on("click-components", function(tabResult) {
 
 function initializeColorSamplesElements() {
     document.getElementById("legend-component").style.opacity = "0.5";
+    document.getElementById("fieldset-component").disabled = true;
     document.getElementById("foreground-component-text").style.opacity = "0.5";
     document.getElementById("background-component-text").style.opacity = "0.5";
     document.getElementById("color-sample-foreground").style.backgroundColor = "#F0F0F0";
