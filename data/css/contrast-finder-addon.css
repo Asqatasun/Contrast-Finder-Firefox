@@ -75,24 +75,18 @@ a {
 .error-message {
     color: #be7104;
     font-size: 18px;
-//    margin-top: 10px;
-  //  margin-bottom: 10px;
     display: none;
 }
 
 .valid-message {
     color: #3C763D;
     font-size: 18px;
-    //margin-top: 10px;
-    //margin-bottom: 10px;
     display: none;
 }
 
 .invalid-message {
     color: #d9534f;
     font-size: 18px;
-    //margin-top: 10px;
-    //margin-bottom: 10px;
     display: none;
 }
 
@@ -109,6 +103,7 @@ a {
 
 .my-fieldset span {
     opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .my-fieldset fieldset {
