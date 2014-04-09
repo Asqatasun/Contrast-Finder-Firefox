@@ -97,7 +97,7 @@ a {
 }
 
 #submit {
-    margin-top: 30px;
+    margin-top: 10px;
     width: 100%;
 }
 
@@ -138,12 +138,19 @@ a.btn.disabled {
     opacity : 1;
 }
 
-#link-cf-website {
-    position:absolute;
-    bottom:0;
-    width:97%;
-    height:60px;
-    text-align: center;
+@media (min-height: 600px) {
+    #link-cf-website {
+	position:absolute;
+	bottom:0;
+	width:97%;
+	height:60px;
+	text-align: center;
+    }
+}
+@media (max-height: 599px) {
+    #link-cf-website {
+	text-align: center;
+    }
 }
 
 .btn.btn-gray {
