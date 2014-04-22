@@ -8,19 +8,19 @@
     <form name="formulaire" role="form">
       <div class="selector">
         <input type="checkbox" name="selector" id="selector" value="selected"/>
-                <label for="selector" id="label-selector" class="">Element selector</label>
+                <label data-l10n-id="selector" for="selector" id="label-selector" class=""></label>
       </div>
 
       <div class="main">        
 	<div id="cf-colors">
           <div class="one-color">
-            Foreground :
+	    <span id="language-reference" data-l10n-id="foreground"></span>
             <div id="color-sample-foreground" class="color-sample">
-              <span class="hexa-value" id="edit-box-foreground">#------</span>
+	      <span class="hexa-value" id="edit-box-foreground">#------</span>
             </div>
           </div>	  
           <div class="one-color">
-            Background :
+	    <span data-l10n-id="background"></span>
             <div id="color-sample-background" class="color-sample">
               <span class="hexa-value" id="edit-box-background">#------</span>
             </div>
@@ -28,53 +28,63 @@
         </div>
 	
 	<div id="element">
-          Element :
+	  <span data-l10n-id="element"></span>
           <span id="element-targeted"></span>
         </div>
       </div>
-	
-        <div id="cf-messages">
-	  <div class="main cf-message-padding">        
+      
+      <div id="cf-messages">
+	<div class="main cf-message-padding">        
           <div class="bs-callout bs-callout-danger invalid-message" id="invalid-ratio">
-            <span>Gosh, contrast is invalid !</span>
+	    <span data-l10n-id="invalid-contrast"></span>
           </div>
           <div class="bs-callout bs-callout-warning error-message" id="background-error">
-            <span>Hmmm, we could not verify the contrast.<br/>This element has a background-image inherited.</span>
+            <span data-l10n-id="error-background-image"></span></br>
+	    <span data-l10n-id="error-background-image2"></span>
           </div>
           <div class="bs-callout bs-callout-warning error-message" id="channel-alpha">
-            <span>Hmmm, we could not verify the contrast.<br/>This element has a color with alpha channel</span>
+	    <span data-l10n-id="error-background-alpha"></span></br>
+	    <span data-l10n-id="error-background-alpha2"></span>
           </div>
           <div class="bs-callout bs-callout-success valid-message" id="valid-ratio">
-            <span>Hey, contrast is OK !</span>
+	    <span data-l10n-id="valid-contrast"></span>            
           </div>
-	  </div>
-        </div>
-	<div class="main">        
+	</div>
+      </div>
+      <div class="main">        
         <div class="cf-block">
           <div class="my-fieldset">
             <fieldset id="fieldset-component" disabled="disabled">
-              <legend id="legend-component">Component to modify</legend>
+              <legend id="legend-component" data-l10n-id="component"></legend>
               <div class="radio">
                 <label for="foreground-component">
                   <input type="radio" name="component-modify" id="foreground-component" value="foreground" checked="checked">
-                  <span id="foreground-component-text">Foreground</span>
+                  <span id="foreground-component-text" data-l10n-id="foreground"></span>
                 </label>
               </div>
               <div class="radio">
                 <label for="background-component">
                   <input type="radio" name="component-modify" id="background-component" value="background">
-                  <span id="background-component-text">Background</span>
+                  <span id="background-component-text" data-l10n-id="background"></span>
                 </label>
               </div>
             </fieldset>
           </div>
 	  
           <div id="cf-link-to-solutions" class="cf-block cf-link-to-solutions-disabled">
-            <strong><a id="submit" class="btn btn-gray btn-lg disabled" href="" role="button" title="Find valid colors (brings you to Tanaguru Contrast-Finder website)">Find valid colors</a></strong>
+            <strong><a id="submit" class="btn btn-gray btn-lg" href="" target="_blank" role="button" title="Find valid colors (brings you to Tanaguru Contrast-Finder website in a new tab)"><span data-l10n-id="find-link"></span>
+	    </a></strong>
           </div>
         </div>
 	
         <div id="link-cf-website">
+	  <div class="main cf-message-padding">        
+            <div class="bs-callout bs-callout-info info-message" id="invalid-ratio">
+	      <span data-l10n-id="level-aa"></span></br>
+	      <span data-l10n-id="text-size"></span>
+            </div>
+	  </div>
+	  
           <a href="http://contrast-finder.tanaguru.com">Tanaguru Contrast-Finder</a>
         </div>
       </div>

@@ -10,7 +10,7 @@ var handleClick = function (e) {
 	e.preventDefault();
 	win.removeEventListener('mouseover', handleMouseover, false);
 	if (target !== null)
-	    target.style.border = lastElementStyle;
+	    target.style.outline = lastElementStyle;
 	selector = false;
 	clickedElement = e.target || e.srcElement;
 	getResultAndEmit(clickedElement, "click-refresh");
@@ -23,11 +23,11 @@ self.port.on("selector-checked", function() {
 	if (selector === true) {
 	    win.addEventListener('click', handleClick, false);
 	    if (target !== null) {
-		target.style.border = lastElementStyle;
+		target.style.outline = lastElementStyle;
 	    }
 	    target = e.target || e.srcElement;
-	    lastElementStyle = target.style.border;
-	    target.style.border= "solid #F07D4E";
+	    lastElementStyle = target.style.outline;
+	    target.style.outline= "2px solid #F07D4E";
 	    getResultAndEmit(target, "over-refresh");
 	}
     };
@@ -40,7 +40,7 @@ self.port.on("selector-unchecked", function() {
     win.removeEventListener('mouseover', handleMouseover, false);
     win.removeEventListener('click', handleClick, false);
     if (target !== null)
-	target.style.border = lastElementStyle;
+	target.style.outline = lastElementStyle;
 });
 
 function getResultAndEmit(elem, emitString) {
@@ -49,7 +49,9 @@ function getResultAndEmit(elem, emitString) {
     var tabResult = null;
     var computeRatio = getContrastRatio(getForegroundColor(elem), bgColor);
     if (bgColor == 'error') {
-	stringResult = "background-error" + ";" + elem.tagName;
+	stringResult = "background-error" + ";" 
+	    + colorToHex(getForegroundColor(target)).toUpperCase() + ";"
+	    + elem.tagName;
 	tabResult = stringResult.split(";");
 	self.port.emit(emitString, tabResult);
     } else if(computeRatio == "error-color") {
