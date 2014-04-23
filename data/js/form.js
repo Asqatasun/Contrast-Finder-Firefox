@@ -77,8 +77,7 @@ function initializeHtmlElements() {
     document.getElementById("invalid-ratio").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
     document.getElementById("valid-ratio").style.display = "none";
-    var languageReference = document.getElementById("language-reference").textContent;
-    if (languageReference == "Avant plan") {
+    if (document.getElementById("language-reference").textContent == "Avant plan") {
 	submit.title = "Trouver des couleurs valides (vous emmenera sur Tanaguru Contrast-Finder dans un nouvel onglet)";
     }
 }
