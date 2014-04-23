@@ -105,6 +105,7 @@ a {
 #submit {
     margin-top: 10px;
     width: 100%;
+    white-space: normal;
 }
 
 .my-fieldset legend {
