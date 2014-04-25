@@ -103,6 +103,10 @@ a {
     display: none;
 }
 
+#info-text {
+    font-size: 14px;
+}
+
 #submit {
     margin-top: 10px;
     width: 100%;
