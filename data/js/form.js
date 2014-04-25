@@ -77,6 +77,8 @@ function initializeHtmlElements() {
     document.getElementById("invalid-ratio").style.display = "none";
     document.getElementById("channel-alpha").style.display = "none";
     document.getElementById("valid-ratio").style.display = "none";
+    document.getElementById("valid-contrast-alt-attribute").style.display = "none";
+    document.getElementById("invalid-contrast-alt-attribute").style.display = "none";
     if (document.getElementById("language-reference").textContent == "Avant plan") {
 	submit.title = "Trouver des couleurs valides (vous emmenera sur Tanaguru Contrast-Finder dans un nouvel onglet)";
     }
@@ -86,12 +88,18 @@ function onValidRatio(tabResult) {
     setColorSamplesElements(tabResult);
     document.getElementById("valid-ratio").style.display = "block";
     setForegroundAndBackgroundValue(tabResult);
+    if (tabResult[3] === "IMG") {
+	document.getElementById("valid-contrast-alt-attribute").style.display = "block";
+    }
 }
 
 function onLiveInvalidRatio(tabResult) {
     setColorSamplesElements(tabResult);
     document.getElementById("invalid-ratio").style.display = "block";
     setForegroundAndBackgroundValue(tabResult);
+    if (tabResult[3] === "IMG") {
+	document.getElementById("invalid-contrast-alt-attribute").style.display = "block";
+    }
 }
 
 function onClickInvalidRatio(tabResult) {
@@ -102,6 +110,9 @@ function onClickInvalidRatio(tabResult) {
     document.getElementById("background-component-text").style.cursor = "inherit";
     document.getElementById("fieldset-component").disabled = false;
     document.getElementById("invalid-ratio").style.display = "block";
+    if (tabResult[3] === "IMG") {
+	document.getElementById("invalid-contrast-alt-attribute").style.display = "block";
+    }
     submit.className = "btn btn-primary btn-lg";
     setForegroundAndBackgroundValue(tabResult);
     ratio = tabResult[2];

@@ -49,7 +49,7 @@ a {
 
 #cf-messages {
     background-color: #f4f4f4;
-    min-height: 12em;
+    min-height: 10em;
 }
 
 .bs-callout {
@@ -90,6 +90,18 @@ a {
     color: #3C763D;
     font-size: 18px;
     display: none;
+}
+
+.inform-message {
+    display: block;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.contrast-alt-attribute {
+    display: none;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 .info-message {

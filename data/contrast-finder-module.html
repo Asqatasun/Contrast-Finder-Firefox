@@ -8,9 +8,9 @@
     <form name="formulaire" role="form">
       <div class="selector">
         <input type="checkbox" name="selector" id="selector" value="selected"/>
-                <label data-l10n-id="selector" for="selector" id="label-selector" class=""></label>
+        <label data-l10n-id="selector" for="selector" id="label-selector" class=""></label>
       </div>
-
+      
       <div class="main">        
 	<div id="cf-colors">
           <div class="one-color">
@@ -37,17 +37,19 @@
 	<div class="main cf-message-padding">        
           <div class="bs-callout bs-callout-danger invalid-message" id="invalid-ratio">
 	    <span data-l10n-id="invalid-contrast"></span>
+            <span data-l10n-id="contrast-alt" class="contrast-alt-attribute" id="invalid-contrast-alt-attribute"></span>
           </div>
           <div class="bs-callout bs-callout-warning error-message" id="background-error">
-            <span data-l10n-id="error-background-image"></span></br>
-	    <span data-l10n-id="error-background-image2"></span>
+            <span data-l10n-id="error-background-image"></span>
+	    <span data-l10n-id="error-background-image2" class="inform-message"></span>
           </div>
           <div class="bs-callout bs-callout-warning error-message" id="channel-alpha">
-	    <span data-l10n-id="error-background-alpha"></span></br>
-	    <span data-l10n-id="error-background-alpha2"></span>
+	    <span data-l10n-id="error-background-alpha"></span>
+	    <span data-l10n-id="error-background-alpha2" class="inform-message"></span>
           </div>
           <div class="bs-callout bs-callout-success valid-message" id="valid-ratio">
-	    <span data-l10n-id="valid-contrast"></span>            
+	    <span data-l10n-id="valid-contrast"></span>
+            <span data-l10n-id="contrast-alt" class="contrast-alt-attribute" id="valid-contrast-alt-attribute"></span>
           </div>
 	</div>
       </div>
@@ -72,7 +74,7 @@
           </div>
 	  
           <div id="cf-link-to-solutions" class="cf-block cf-link-to-solutions-disabled">
-            <strong><a id="submit" class="btn btn-gray btn-lg" href="" target="_blank" role="button" title="Find valid colors (brings you to Tanaguru Contrast-Finder website in a new tab)"><span data-l10n-id="find-link"></span>
+            <strong><a id="submit" class="btn btn-gray btn-lg disabled" href="" target="_blank" role="button" title="Find valid colors (brings you to Tanaguru Contrast-Finder website in a new tab)"><span data-l10n-id="find-link"></span>
 	    </a></strong>
           </div>
         </div>
