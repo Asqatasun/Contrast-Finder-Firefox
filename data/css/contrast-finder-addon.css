@@ -49,7 +49,7 @@ a {
 
 #cf-messages {
     background-color: #f4f4f4;
-    min-height: 12em;
+    min-height: 10em;
 }
 
 .bs-callout {
@@ -92,15 +92,36 @@ a {
     display: none;
 }
 
-.info-message {
+.inform-message {
+    display: block;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.contrast-alt-attribute {
+    display: none;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#info-message {
+    background-color: #f4f4f4;
+    min-height: 4em;
     color: #656565;
-    font-size: 18px;
+    font-size: 12px;
+    text-align: left;
+    padding: 1em 7px 1em;
+    margin-bottom: 5px;    
 }
 
 .invalid-message {
     color: #d9534f;
     font-size: 18px;
     display: none;
+}
+
+#info-text {
+    font-size: 14px;
 }
 
 #submit {
@@ -151,16 +172,16 @@ a.btn {
     display: inline-block;
 }
 
-@media (min-height: 720px) {
+@media (min-height: 680px) {
     #link-cf-website {
 	position:absolute;
 	bottom:0;
-	width:97%;
+	width: 100%;
 	margin-bottom:30px;
 	text-align: center;
     }
 }
-@media (max-height: 719px) {
+@media (max-height: 679px) {
     #link-cf-website {
 	text-align: center;
     }
