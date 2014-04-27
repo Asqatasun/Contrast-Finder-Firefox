@@ -1,6 +1,12 @@
 This is Tanaguru Contrast-Finder for Firefox
 
-This addon speeds and eases the use of [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) to find good colors for contrasts in web accessibility (a11y).
+This is Tanaguru Contrast-Finder for Firefox. This addon speeds and eases the use of [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) to find good color contrast by selecting **directly in the web page** the element whom color you want to change.
+
+This helps you in satisfying web accessibility (a11y) tests on contrasts:
+
+* [WCAG Success Criteria 1.4.3](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast)
+* [AccessiWeb criteria 3.3](http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#crit-3-3)
+* [RGAA test 2.5 (in french)](http://rgaa.net/Valeur-du-rapport-de-contraste-du.html)
 
 ## Usage
 
@@ -9,16 +15,9 @@ Right-clic on a given part of text, select whether you want to improve the foreg
 * If the contrast between text color (foreground) and the background is correct, you will have an informative message.
 * On the other hand, if the contrast is not valid, you will be directed a "result page" of Contrast-Finder giving you choices of colors that create valid contrast options.
 
-## Screenshots
+## Usage and screenshots
 
-### Right-clic on a text and choose to improve background of foreground
-
-![1) Enhance contrast for the green label (from Bootstrap) : right-clic on it and select whether to improve foreground of background.](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_1_right_clic.png)
-
-### Choose the colour you like most
-
-![
-2) Valid colours (for contrast) are presented, just pick the one you like most !](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/master/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_2_result_page.png)
+see page...
 
 ## How to build
 
