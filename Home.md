@@ -8,16 +8,9 @@ This helps you in satisfying web accessibility (a11y) tests on contrasts:
 * [AccessiWeb criteria 3.3](http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#crit-3-3)
 * [RGAA test 2.5 (in french)](http://rgaa.net/Valeur-du-rapport-de-contraste-du.html)
 
-## Usage
-
-Right-clic on a given part of text, select whether you want to improve the foreground or background color, and validate.
-
-* If the contrast between text color (foreground) and the background is correct, you will have an informative message.
-* On the other hand, if the contrast is not valid, you will be directed a "result page" of Contrast-Finder giving you choices of colors that create valid contrast options.
-
 ## Usage and screenshots
 
-see page...
+see [Usage & screenshots](Usage and screenshots)
 
 ## How to build
 
