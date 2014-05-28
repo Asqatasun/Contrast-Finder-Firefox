@@ -8,6 +8,7 @@ var win = window.content;
 var handleClick = function (e) {
     if (selector === true) {
 	e.preventDefault();
+	e.stopPropagation();
 	win.removeEventListener('mouseover', handleMouseover, false);
 	if (target !== null)
 	    target.style.outline = lastElementStyle;

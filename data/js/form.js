@@ -3,11 +3,31 @@ var background = document.getElementById("edit-box-background");
 var element = document.getElementById("element-targeted");
 var wrongRatio = document.getElementById("on-invalid-ratio");
 var selector = document.getElementById("selector");
+var fgPicker = document.getElementById("fgPicker");
+var bgPicker = document.getElementById("bgPicker");
 var submit = document.getElementById("submit");
 var backgroundIsTested = false;
 var ratio;
 
 selector.addEventListener("click", selectorFunc);
+fgPicker.addEventListener("click", fgPickerFunc);
+bgPicker.addEventListener("click", bgPickerFunc);
+
+function fgPickerFunc() {
+    if (fgPicker.checked) {
+	addon.port.emit("fgPicker-checked");
+    } else {
+	addon.port.emit("fgPicker-unchecked");
+    }
+}
+
+function bgPickerFunc() {
+    if (bgPicker.checked) {
+	addon.port.emit("bgPicker-checked");
+    } else {
+	addon.port.emit("bgPicker-unchecked");
+    }
+}
 
 function selectorFunc() {
     if (selector.checked) {
@@ -33,6 +53,30 @@ addon.port.on("live-components", function(tabResult) {
 	onValidRatio(tabResult);
     else
 	onLiveInvalidRatio(tabResult);
+});
+
+addon.port.on("live-components-fgPicker", function(fgColor) {
+    initializeHtmlElements();
+    document.getElementById("color-sample-foreground").style.backgroundColor = "#" + fgColor;
+    document.getElementById("color-sample-foreground").style.backgroundImage = "none";
+    foreground.textContent = "#" + fgColor;
+});
+
+addon.port.on("stop-fgPicker-click", function() {
+    fgPicker.checked = false;
+    addon.port.emit("fgPicker-unchecked");
+});
+
+addon.port.on("live-components-bgPicker", function(bgColor) {
+    initializeHtmlElements();
+    document.getElementById("color-sample-background").style.backgroundColor = "#" + bgColor;
+    document.getElementById("color-sample-background").style.backgroundImage = "none";
+    background.textContent = "#" + bgColor;
+});
+
+addon.port.on("stop-bgPicker-click", function() {
+    bgPicker.checked = false;
+    addon.port.emit("bgPicker-unchecked");
 });
 
 addon.port.on("click-components", function(tabResult) {
@@ -179,4 +223,20 @@ addon.port.on("stop-selector", function() {
 
 addon.port.on("start-selector-button", function() {
     selector.checked = true;
+});
+
+addon.port.on("stop-fgPicker", function() {
+    fgPicker.checked = false;
+});
+
+addon.port.on("start-fgPicker-button", function() {
+    fgPicker.checked = true;
+});
+
+addon.port.on("stop-bgPicker", function() {
+    bgPicker.checked = false;
+});
+
+addon.port.on("start-bgPicker-button", function() {
+    bgPicker.checked = true;
 });
