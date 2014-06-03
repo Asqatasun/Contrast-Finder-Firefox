@@ -50,4 +50,6 @@ Focus to a given text, then press the "context menu" key, choose which color (ba
 
 All [documentation is in the wiki](https://github.com/Tanaguru/Contrast-Finder-Firefox/wiki)
 
+##Download
 
+You can download the add-on on the addons mozilla store : [Tanaguru Contrast-Finder](https://addons.mozilla.org/en-US/firefox/addon/tanaguru-contrast-finder/)
