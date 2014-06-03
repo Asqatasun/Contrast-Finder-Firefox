@@ -1,5 +1,4 @@
-
-## 1) Install this Firefox extension
+## 1) Add to Firefox
 https://addons.mozilla.org/fr/firefox/addon/tanaguru-contrast-finder/
 
 
