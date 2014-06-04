@@ -1,12 +1,20 @@
 # Contrast-Finder-Firefox
 
- This is Tanaguru Contrast-Finder for Firefox. This addon speeds and eases the use of [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) to find good color contrast by selecting **directly in the web page** the element whom color you want to change.
+This is Tanaguru **Contrast-Finder** for **Firefox**
+> https://addons.mozilla.org/en-US/firefox/addon/tanaguru-contrast-finder/
+ 
+This **addon** speeds and eases the use of [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) to find good **color contrast** by selecting **directly in the web page** the element whom color you want to change.
 
 This helps you in satisfying web accessibility (a11y) tests on contrasts:
 
 * [WCAG Success Criteria 1.4.3](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast)
 * [AccessiWeb criteria 3.3](http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#crit-3-3)
 * [RGAA test 2.5 (in french)](http://rgaa.net/Valeur-du-rapport-de-contraste-du.html)
+
+
+## Documentation
+
+All [documentation is in the wiki](https://github.com/Tanaguru/Contrast-Finder-Firefox/wiki)
 
 ## Screenshots
 
@@ -46,10 +54,3 @@ Focus to a given text, then press the "context menu" key, choose which color (ba
 
 ![screenshot 08](https://raw.githubusercontent.com/Tanaguru/Contrast-Finder-Firefox/develop/Screenshots/Tanaguru_Contrast-Finder_on_Bootstrap_green_label_1_right_clic.png)
 
-## Documentation
-
-All [documentation is in the wiki](https://github.com/Tanaguru/Contrast-Finder-Firefox/wiki)
-
-##Download
-
-You can download the add-on on the addons mozilla store : [Tanaguru Contrast-Finder](https://addons.mozilla.org/en-US/firefox/addon/tanaguru-contrast-finder/)
