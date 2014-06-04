@@ -1,5 +1,5 @@
 ## 1) Add to Firefox
-https://addons.mozilla.org/fr/firefox/addon/tanaguru-contrast-finder/
+https://addons.mozilla.org/en-US/firefox/addon/tanaguru-contrast-finder/
 
 
 ## 2) Opening the sidebar in Firefox
