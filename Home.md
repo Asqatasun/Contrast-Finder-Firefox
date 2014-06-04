@@ -1,5 +1,5 @@
 This is Tanaguru **Contrast-Finder** for **Firefox**
-> https://addons.mozilla.org/fr/firefox/addon/tanaguru-contrast-finder/
+> https://addons.mozilla.org/en-US/firefox/addon/tanaguru-contrast-finder/
 
 This **addon** speeds and eases the use of [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) to find good color contrast by selecting **directly in the web page** the element whom color you want to change.
 
