@@ -1,3 +1,4 @@
+var ratioValue = 4.5;
 var target = null;
 var lastElementStyle;
 var picker = false;
@@ -19,7 +20,6 @@ var handleClick = function (e) {
 };
 
 self.port.on("checked-picker", function() {
-    console.log("receive click on content script");
     picker = true;
     handleMouseover = function (e) {
 	if (picker === true) {

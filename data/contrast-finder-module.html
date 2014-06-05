@@ -13,20 +13,22 @@
       
       <div class="main">        
 	<div id="cf-colors">
+	  <span id="language-reference" data-l10n-id="foreground"></span>
           <div class="one-color">
-	    <span id="language-reference" data-l10n-id="foreground"></span>
-            <div id="color-sample-foreground" class="color-sample">
-	      <span class="hexa-value" id="edit-box-foreground">#------</span>
+	    <div id="color-sample-foreground" class="color-sample">
 	    </div>
-	    <input type="checkbox" name="picker" id="fgPicker"/>      
-          </div>	  
+	    <span class="hexa-value" id="edit-box-foreground">#------</span>
+	    <input class="picker-input" type="checkbox" name="picker" id="fgPicker"/>      
+	    <label class="button picker" for="fgPicker"></label>
+	  </div>	  
+	  <span data-l10n-id="background"></span>
           <div class="one-color">
-	    <span data-l10n-id="background"></span>
             <div id="color-sample-background" class="color-sample">
-              <span class="hexa-value" id="edit-box-background">#------</span>
             </div>
-	    <input type="checkbox" name="picker2" id="bgPicker"/>      
-          </div>
+	    <span class="hexa-value" id="edit-box-background">#------</span>
+	    <input class="picker-input" type="checkbox" name="picker2" id="bgPicker"/>      
+	    <label class="button picker" for="bgPicker"></label>
+	  </div>
         </div>
 	
 	<div id="element">
@@ -61,6 +63,37 @@
           </div>
 	</div>
       </div>
+
+      <div class="main cf-block my-fieldset">
+        <fieldset id="fieldset-ratio" disabled="disabled">
+          <legend id="legend-ratio">Caractéristiques du texte</legend>
+          <div class="radio">
+            <label for="small-size">
+              <input type="radio" name="text-size" id="small-size" value="inf" checked="checked">
+              <span id="small-size-text">Texte &lt; 14px</span>
+            </label>
+          </div>
+          <div class="radio">
+            <label for="medium-size">
+              <input type="radio" name="text-size" id="medium-size" value="med">
+              <span id="medium-size-text">14px &le; Texte &lt; 18px</span>
+            </label>
+          </div>
+          <div class="radio">
+            <label for="big-size">
+              <input type="radio" name="text-size" id="big-size" value="sup">
+              <span id="big-size-text">Texte &ge; 18px</span>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label for="bold-text" id="label-bold-checkbox" class="">
+              <input type="checkbox" name="bold-text" id="bold-text"/>
+	      <span id="isbold-text">Texte en gras ?</span>
+	    </label>
+          </div>
+        </fieldset>	
+      </div>
+
       <div class="main">        
         <div class="cf-block">
           <div class="my-fieldset">

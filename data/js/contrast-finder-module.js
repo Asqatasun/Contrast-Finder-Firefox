@@ -49,32 +49,38 @@ function getResultAndEmit(elem, emitString) {
     var stringResult = null;
     var tabResult = null;
     var computeRatio = getContrastRatio(getForegroundColor(elem), bgColor);
+    var fontSize, fontWeight;
+    fontSize = getForegroundFontSize(elem);
+    fontWeight = getForegroundFontWeight(elem);
     if (bgColor == 'error') {
 	stringResult = "background-error" + ";" 
 	    + colorToHex(getForegroundColor(target)).toUpperCase() + ";"
-	    + elem.tagName;
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
 	tabResult = stringResult.split(";");
 	self.port.emit(emitString, tabResult);
     } else if(computeRatio == "error-color") {
-	stringResult = "alpha-channel" + ";" + elem.tagName;
+	stringResult = "alpha-channel" + ";" 
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
 	tabResult = stringResult.split(";");
 	self.port.emit(emitString, tabResult);
     }else {
-	var fontSize = getForegroundFontSize(elem);
-	var fontWeight = getForegroundFontWeight(elem);
 	computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
 	if (computeRatio == "valid") {
 	    stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
 		+ colorToHex(bgColor).toUpperCase() + ";"
 		+ "valid-ratio" + ";"
-		+ elem.tagName;
+		+ elem.tagName + ";"
+		+ fontSize + ";" + fontWeight;
 	    tabResult = stringResult.split(";");
 	    self.port.emit(emitString, tabResult);
 	} else {
 	    stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
 		+ colorToHex(bgColor).toUpperCase() + ";"
 		+ computeRatio + ";"
-		+ elem.tagName;
+		+ elem.tagName + ";"
+		+ fontSize + ";" + fontWeight;
 	    tabResult = stringResult.split(";");
 	    self.port.emit(emitString, tabResult);
 	}
