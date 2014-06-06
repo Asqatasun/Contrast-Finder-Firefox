@@ -31,17 +31,34 @@ a {
     margin-left : 10px;
 }
 
-.color-sample {
-    margin-top: 4px;
-    vertical-align: -5px;
-    display: inline-flex;
-    border: solid 1px #CCC;
-    width: 50%;
-    height: 20px;
-    border-radius: .3em;
-    margin-right: 5px;
-    background-color: #f0f0f0;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px);
+@media (max-width: 240px) {
+    .color-sample {
+	margin-top: 4px;
+	vertical-align: -5px;
+	display: inline-flex;
+	border: solid 1px #CCC;
+	width: 39%;
+	height: 20px;
+	border-radius: .3em;
+	margin-right: 5px;
+	background-color: #f0f0f0;
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px);
+    }
+}
+
+@media (min-width: 241px) {
+    .color-sample {
+	margin-top: 4px;
+	vertical-align: -5px;
+	display: inline-flex;
+	border: solid 1px #CCC;
+	width: 50%;
+	height: 20px;
+	border-radius: .3em;
+	margin-right: 5px;
+	background-color: #f0f0f0;
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,0.5) 3px, rgba(255,255,255,.5) 29px);
+    }
 }
 
 .hexa-value {
