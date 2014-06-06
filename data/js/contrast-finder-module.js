@@ -8,6 +8,7 @@ var win = window.content;
 var handleClick = function (e) {
     if (selector === true) {
 	e.preventDefault();
+	e.stopPropagation();
 	win.removeEventListener('mouseover', handleMouseover, false);
 	if (target !== null)
 	    target.style.outline = lastElementStyle;
@@ -21,7 +22,7 @@ self.port.on("selector-checked", function() {
     selector = true;
     handleMouseover = function (e) {
 	if (selector === true) {
-	    win.addEventListener('click', handleClick, false);
+	    win.addEventListener('click', handleClick, true);
 	    if (target !== null) {
 		target.style.outline = lastElementStyle;
 	    }
@@ -31,49 +32,69 @@ self.port.on("selector-checked", function() {
 	    getResultAndEmit(target, "over-refresh");
 	}
     };
-    win.removeEventListener('click', handleClick, false);
+    win.removeEventListener('click', handleClick, true);
     win.addEventListener('mouseover', handleMouseover, false);
 });
 	     
 self.port.on("selector-unchecked", function() {
     selector = false;
     win.removeEventListener('mouseover', handleMouseover, false);
-    win.removeEventListener('click', handleClick, false);
+    win.removeEventListener('click', handleClick, true);
     if (target !== null)
 	target.style.outline = lastElementStyle;
 });
 
 function getResultAndEmit(elem, emitString) {
     var bgColor = getNotTransparentColor(elem);	
-    var stringResult = null;
-    var tabResult = null;
+    var stringResult = null, tabResult = null;
     var computeRatio = getContrastRatio(getForegroundColor(elem), bgColor);
+    var fontSize, fontWeight;
+    fontSize = getForegroundFontSize(elem);
+    fontWeight = getForegroundFontWeight(elem);
     if (bgColor == 'error') {
 	stringResult = "background-error" + ";" 
 	    + colorToHex(getForegroundColor(target)).toUpperCase() + ";"
-	    + elem.tagName;
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
 	tabResult = stringResult.split(";");
 	self.port.emit(emitString, tabResult);
-    } else if(computeRatio == "error-color") {
-	stringResult = "alpha-channel" + ";" + elem.tagName;
+    } else if (computeRatio == "error-color") {
+	stringResult = "alpha-channel" + ";" 
+	    + "null" + ";"+ "null" + ";"
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
 	tabResult = stringResult.split(";");
 	self.port.emit(emitString, tabResult);
-    }else {
-	var fontSize = getForegroundFontSize(elem);
-	var fontWeight = getForegroundFontWeight(elem);
+    } else if (computeRatio == "error-color-fg") {
+	stringResult = "alpha-channel" + ";" 
+	    + "null" + ";" + colorToHex(bgColor).toUpperCase() + ";"
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
+	tabResult = stringResult.split(";");
+	self.port.emit(emitString, tabResult);
+    } else if (computeRatio == "error-color-bg") {
+	stringResult = "alpha-channel" + ";"
+	    + colorToHex(getForegroundColor(target)).toUpperCase() + ";" + "null" + ";"
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
+	tabResult = stringResult.split(";");
+	self.port.emit(emitString, tabResult);
+    } else {
 	computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
 	if (computeRatio == "valid") {
 	    stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
 		+ colorToHex(bgColor).toUpperCase() + ";"
 		+ "valid-ratio" + ";"
-		+ elem.tagName;
+		+ elem.tagName + ";"
+		+ fontSize + ";" + fontWeight;
 	    tabResult = stringResult.split(";");
 	    self.port.emit(emitString, tabResult);
 	} else {
 	    stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
 		+ colorToHex(bgColor).toUpperCase() + ";"
 		+ computeRatio + ";"
-		+ elem.tagName;
+		+ elem.tagName + ";"
+		+ fontSize + ";" + fontWeight;
 	    tabResult = stringResult.split(";");
 	    self.port.emit(emitString, tabResult);
 	}
@@ -97,9 +118,12 @@ function getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio) {
 function getContrastRatio(fgColor, bgColor) {
     var fgLuminosity = getLuminosity(fgColor);
     var bgLuminosity = getLuminosity(bgColor);
-    if (fgLuminosity === "error-color" || bgLuminosity === "error-color") {
+    if (fgLuminosity === "error-color" && bgLuminosity === "error-color")
 	return "error-color";
-    }
+    else if (fgLuminosity === "error-color" && bgLuminosity !== "error-color")
+	return "error-color-fg";
+    else if (bgLuminosity === "error-color" && fgLuminosity !== "error-color")
+	return "error-color-bg";
     if (fgLuminosity > bgLuminosity) {
         return computeContrast(fgLuminosity, bgLuminosity);
     } else {
