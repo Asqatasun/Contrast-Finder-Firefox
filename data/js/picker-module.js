@@ -23,7 +23,7 @@ self.port.on("checked-picker", function() {
     picker = true;
     handleMouseover = function (e) {
 	if (picker === true) {
-	    win.addEventListener('click', handleClick, false);
+	    win.addEventListener('click', handleClick, true);
 	    if (target !== null) {
 		target.style.cursor = lastElementStyle;
 	    }
@@ -37,14 +37,14 @@ self.port.on("checked-picker", function() {
 	    self.port.emit("picker", positionTab);
 	}
     };
-    win.removeEventListener('click', handleClick, false);
+    win.removeEventListener('click', handleClick, true);
     win.addEventListener('mousemove', handleMouseover, false);
 });
 
 self.port.on("unchecked-picker", function() {
     picker = false;
     win.removeEventListener('mousemove', handleMouseover, false);
-    win.removeEventListener('click', handleClick, false);
+    win.removeEventListener('click', handleClick, true);
     if (target !== null)
 	target.style.cursor = lastElementStyle;
 });

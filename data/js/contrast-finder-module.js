@@ -22,7 +22,7 @@ self.port.on("selector-checked", function() {
     selector = true;
     handleMouseover = function (e) {
 	if (selector === true) {
-	    win.addEventListener('click', handleClick, false);
+	    win.addEventListener('click', handleClick, true);
 	    if (target !== null) {
 		target.style.outline = lastElementStyle;
 	    }
@@ -32,14 +32,14 @@ self.port.on("selector-checked", function() {
 	    getResultAndEmit(target, "over-refresh");
 	}
     };
-    win.removeEventListener('click', handleClick, false);
+    win.removeEventListener('click', handleClick, true);
     win.addEventListener('mouseover', handleMouseover, false);
 });
 	     
 self.port.on("selector-unchecked", function() {
     selector = false;
     win.removeEventListener('mouseover', handleMouseover, false);
-    win.removeEventListener('click', handleClick, false);
+    win.removeEventListener('click', handleClick, true);
     if (target !== null)
 	target.style.outline = lastElementStyle;
 });
