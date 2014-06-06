@@ -17,7 +17,9 @@ bgPicker.addEventListener("click", bgPickerFunc);
 function fgPickerFunc() {
     if (fgPicker.checked) {
 	initializeHtmlElements();
-	if (bgPicker.checked)
+	if (selector.checked)
+	    addon.port.emit("unchecked");
+	else if (bgPicker.checked)
 	    addon.port.emit("bgPicker-unchecked");
 	if (bgColor !== null)
 	    onActivatePickerElements();
@@ -32,7 +34,9 @@ function fgPickerFunc() {
 function bgPickerFunc() {
     if (bgPicker.checked) {
 	initializeHtmlElements();
-	if (fgPicker.checked)
+	if (selector.checked)
+	    addon.port.emit("unchecked");
+	else if (fgPicker.checked)
 	    addon.port.emit("fgPicker-unchecked");
 	if (fgColor !== null)
 	    onActivatePickerElements();
@@ -46,6 +50,10 @@ function bgPickerFunc() {
 
 function selectorFunc() {
     if (selector.checked) {
+	if (fgPicker.checked)
+	    addon.port.emit("fgPicker-unchecked");
+	else if (bgPicker.checked)
+	    addon.port.emit("bgPicker-unchecked");
 	initializeHtmlElements();
 	initializeColorSamplesElements();
 	initializePickerElements();
