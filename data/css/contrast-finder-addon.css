@@ -23,7 +23,7 @@ a {
 
 .one-color {
     padding-bottom: 10px; 
-    margin-top: -8px;
+    margin-top: -4px;
 }
 
 .one-color input {
@@ -32,7 +32,7 @@ a {
 }
 
 .color-sample {
-    margin-top: 8px;
+    margin-top: 4px;
     vertical-align: -5px;
     display: inline-flex;
     border: solid 1px #CCC;
@@ -220,12 +220,12 @@ a.btn {
 .button{
     background-image: linear-gradient(top, #f4f1ee, #fff);
     border-radius: 50%;
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
-    height: 30px;
+    height: 20px;
     margin: 0 30px 30px 0;
     position: relative;
-    width: 30px;
+    width: 20px;
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
 }
@@ -248,9 +248,9 @@ a.btn {
 
 .picker:after{
     font-family : "heydings_controls", Helvetica, Arial, sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     content: "e";
-    left: 5px;
+    left: 2px;
     top: 0px;
 }
 
