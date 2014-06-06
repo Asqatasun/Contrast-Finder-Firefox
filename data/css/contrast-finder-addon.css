@@ -159,6 +159,10 @@ a {
     cursor: not-allowed;
 }
 
+.my-fieldset span:first-child {
+    opacity: 1;
+}
+
 .my-fieldset fieldset {
     padding: 0px;
     margin: 0px;

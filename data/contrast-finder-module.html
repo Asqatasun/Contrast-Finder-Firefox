@@ -66,29 +66,35 @@
 
       <div class="main cf-block my-fieldset">
         <fieldset id="fieldset-ratio" disabled="disabled">
-          <legend id="legend-ratio">Caractéristiques du texte</legend>
+          <legend data-l10n-id="text-properties" id="legend-ratio"></legend>
           <div class="radio">
             <label for="small-size">
               <input type="radio" name="text-size" id="small-size" value="inf" checked="checked">
-              <span id="small-size-text">Texte &lt; 14px</span>
+              <span id="small-size-text">
+		<span data-l10n-id="text"></span> &lt; 14px
+	      </span>
             </label>
           </div>
           <div class="radio">
             <label for="medium-size">
               <input type="radio" name="text-size" id="medium-size" value="med">
-              <span id="medium-size-text">14px &le; Texte &lt; 18px</span>
+              <span id="medium-size-text">
+		14px &le; <span data-l10n-id="text"></span> &lt; 18px
+	      </span>
             </label>
           </div>
           <div class="radio">
             <label for="big-size">
               <input type="radio" name="text-size" id="big-size" value="sup">
-              <span id="big-size-text">Texte &ge; 18px</span>
+              <span id="big-size-text">
+		<span data-l10n-id="text"></span> &ge; 18px
+	      </span>
             </label>
           </div>
           <div class="checkbox">
             <label for="bold-text" id="label-bold-checkbox" class="">
               <input type="checkbox" name="bold-text" id="bold-text"/>
-	      <span id="isbold-text">Texte en gras ?</span>
+	      <span data-l10n-id="text-bold" id="isbold-text"></span>
 	    </label>
           </div>
         </fieldset>	
