@@ -262,9 +262,26 @@ function onBackgroundError(tabResult) {
 
 function onChannelAlphaError(tabResult) {
     document.getElementById("channel-alpha").style.display = "block";
-    dropForegroundAndBackgroundValue();
-    setRatioFieldsetParameters(tabResult[2], tabResult[3]);
-    element.textContent = "<" + tabResult[1].toLowerCase() + ">";
+    if (tabResult[1] !== "null" && tabResult[2] === "null") {
+	foreground.textContent = "#" + tabResult[1];
+	background.textContent = "#------";
+	fgColor = tabResult[1];
+	document.getElementById("color-sample-foreground").style.backgroundColor = "#" + tabResult[1]
+	;
+	document.getElementById("color-sample-foreground").style.backgroundImage = "none";
+    }
+    if (tabResult[1] === "null" && tabResult[2] !== "null") {
+	background.textContent = "#" + tabResult[2];
+	foreground.textContent = "#------";
+	bgColor = tabResult[2];
+	document.getElementById("color-sample-background").style.backgroundColor = "#" + tabResult[2];
+	document.getElementById("color-sample-background").style.backgroundImage = "none";
+    }
+    if (tabResult[1] === "null" && tabResult[2] === "null") {
+	dropForegroundAndBackgroundValue();	
+    }
+    setRatioFieldsetParameters(tabResult[4], tabResult[5]);
+    element.textContent = "<" + tabResult[3].toLowerCase() + ">";
 }
 
 function setColorSamplesElements(tabResult) {

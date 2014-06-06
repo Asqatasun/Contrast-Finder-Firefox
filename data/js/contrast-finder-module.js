@@ -46,8 +46,7 @@ self.port.on("selector-unchecked", function() {
 
 function getResultAndEmit(elem, emitString) {
     var bgColor = getNotTransparentColor(elem);	
-    var stringResult = null;
-    var tabResult = null;
+    var stringResult = null, tabResult = null;
     var computeRatio = getContrastRatio(getForegroundColor(elem), bgColor);
     var fontSize, fontWeight;
     fontSize = getForegroundFontSize(elem);
@@ -59,13 +58,28 @@ function getResultAndEmit(elem, emitString) {
 	    + fontSize + ";" + fontWeight;
 	tabResult = stringResult.split(";");
 	self.port.emit(emitString, tabResult);
-    } else if(computeRatio == "error-color") {
+    } else if (computeRatio == "error-color") {
 	stringResult = "alpha-channel" + ";" 
+	    + "null" + ";"+ "null" + ";"
 	    + elem.tagName + ";"
 	    + fontSize + ";" + fontWeight;
 	tabResult = stringResult.split(";");
 	self.port.emit(emitString, tabResult);
-    }else {
+    } else if (computeRatio == "error-color-fg") {
+	stringResult = "alpha-channel" + ";" 
+	    + "null" + ";" + colorToHex(bgColor).toUpperCase() + ";"
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
+	tabResult = stringResult.split(";");
+	self.port.emit(emitString, tabResult);
+    } else if (computeRatio == "error-color-bg") {
+	stringResult = "alpha-channel" + ";"
+	    + colorToHex(getForegroundColor(target)).toUpperCase() + ";" + "null" + ";"
+	    + elem.tagName + ";"
+	    + fontSize + ";" + fontWeight;
+	tabResult = stringResult.split(";");
+	self.port.emit(emitString, tabResult);
+    } else {
 	computeRatio = getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio);
 	if (computeRatio == "valid") {
 	    stringResult = colorToHex(getForegroundColor(target)).toUpperCase() + ";"
@@ -104,9 +118,12 @@ function getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio) {
 function getContrastRatio(fgColor, bgColor) {
     var fgLuminosity = getLuminosity(fgColor);
     var bgLuminosity = getLuminosity(bgColor);
-    if (fgLuminosity === "error-color" || bgLuminosity === "error-color") {
+    if (fgLuminosity === "error-color" && bgLuminosity === "error-color")
 	return "error-color";
-    }
+    else if (fgLuminosity === "error-color" && bgLuminosity !== "error-color")
+	return "error-color-fg";
+    else if (bgLuminosity === "error-color" && fgLuminosity !== "error-color")
+	return "error-color-bg";
     if (fgLuminosity > bgLuminosity) {
         return computeContrast(fgLuminosity, bgLuminosity);
     } else {
