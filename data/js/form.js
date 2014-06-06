@@ -185,14 +185,20 @@ function initializePickerElements() {
 }
 
 function onActivatePickerElements() {
+    var smallText = document.getElementById("small-size-text");
+    var mediumText = document.getElementById("medium-size-text");
+    var bigText = document.getElementById("big-size-text");
     document.getElementById("legend-ratio").style.opacity = "1";
     document.getElementById("fieldset-ratio").disabled = false;
-    document.getElementById("small-size-text").style.opacity = "1";
-    document.getElementById("small-size-text").style.cursor = "inherit";
-    document.getElementById("medium-size-text").style.opacity = "1";
-    document.getElementById("medium-size-text").style.cursor = "inherit";    
-    document.getElementById("big-size-text").style.opacity = "1";
-    document.getElementById("big-size-text").style.cursor = "inherit";    
+    smallText.style.opacity = "1";
+    smallText.style.cursor = "inherit";
+    smallText.firstElementChild.style.cursor = "inherit";
+    mediumText.style.opacity = "1";
+    mediumText.style.cursor = "inherit";
+    mediumText.firstElementChild.style.cursor = "inherit";
+    bigText.style.opacity = "1";
+    bigText.style.cursor = "inherit";
+    bigText.firstElementChild.style.cursor = "inherit";
     document.getElementById("isbold-text").style.opacity = "1";
     document.getElementById("isbold-text").style.cursor = "inherit";
 }
