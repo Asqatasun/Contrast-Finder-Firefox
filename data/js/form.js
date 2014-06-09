@@ -136,7 +136,8 @@ addon.port.on("click-components", function(tabResult) {
     component = backgroundIsTested;
     
     var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23"
-	+ foreground.textContent.replace("#", "") + "&background=%23" + background.textContent.replace("#", "")
+	+ foreground.textContent.replace("#", "") + "&background=%23"
+	+ background.textContent.replace("#", "")
 	+ "&isBackgroundTested=" + backgroundIsTested + "&ratio="
 	+ ratio + "&algo=HSV";
     
