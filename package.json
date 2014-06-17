@@ -5,5 +5,5 @@
   "description": "Speed and ease the use of Contrast-Finder to find good colors for contrasts in web accessibility (a11y). Right-clic on a given part of text, select whether you want to improve the foreground or background color, and validate.",
   "author": "Open-S",
   "license": "AGPL",
-  "version": "0.3.1"
+  "version": "0.3.2"
 }
