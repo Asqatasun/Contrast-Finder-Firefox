@@ -106,9 +106,9 @@ function getResultAndEmit(elem, emitString) {
 /********************************************************************/
 
 function getIndexofSelectBoxRatio(fontSize, fontWeight, computeRatio) {
-    if ((fontSize < 18 && fontWeight < 700 && computeRatio < 4.5) || (fontSize < 14 && fontWeight >= 700 && computeRatio < 4.5)) {
+    if ((fontSize <= 18 && fontWeight < 700 && computeRatio < 4.5) || (fontSize < 14 && fontWeight >= 700 && computeRatio < 4.5)) {
 	return "4.5";
-    } else if ((fontSize >= 18 && fontWeight < 700 && computeRatio < 3) || (fontSize >= 14 && fontWeight >= 700 && computeRatio < 3 )) {
+    } else if ((fontSize > 18 && fontWeight < 700 && computeRatio < 3) || (fontSize >= 14 && fontWeight >= 700 && computeRatio < 3 )) {
 	return "3";
     } else {
 	return "valid";

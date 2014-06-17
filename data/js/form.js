@@ -342,22 +342,22 @@ function setRatioFieldsetParameters(fontSize, fontWeight) {
 	small.checked = true;
 	ratio = "4.5";
 	pickerTextSize = "inf";
-    } else if (fontSize >= 18 && fontWeight < 700) {
+    } else if (fontSize > 18 && fontWeight < 700) {
 	boldState.checked = false;
 	big.checked = true;
 	ratio = "3";
 	pickerTextSize = "sup";
-    } else if (fontSize >= 18 && fontWeight >= 700) {
+    } else if (fontSize > 18 && fontWeight >= 700) {
 	boldState.checked = true;
     	big.checked = true;
 	ratio = "3";
 	pickerTextSize = "sup";
-    } else if (fontSize >= 14 && fontSize < 18 && fontWeight < 700) {
+    } else if (fontSize >= 14 && fontSize <= 18 && fontWeight < 700) {
 	boldState.checked = false;
     	medium.checked = true;
 	ratio = "4.5";
 	pickerTextSize = "med";
-    } else if (fontSize >= 14 && fontSize < 18 && fontWeight >= 700) {
+    } else if (fontSize >= 14 && fontSize <= 18 && fontWeight >= 700) {
 	boldState.checked = true;
     	medium.checked = true;
 	ratio = "3";
