@@ -8,7 +8,7 @@ For a clearer understanding, please see the [add-on SDK based documentation on t
 
 ### The main module
 
-The "main" module of the extension is in the main.js file (lib/main.js).
+The "main" module of the extension is in the main.js files (lib/main.js).
 
 To communicate between each javascript file, it's necessary to use workers with port communication :<br/><br/>
 * To send some data using an emit message :
