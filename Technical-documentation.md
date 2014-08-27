@@ -1,4 +1,4 @@
-# This page contain all technical documentation to contribute
+# This page contain technical documentation to contribute
 
 ## Prerequisite
 
