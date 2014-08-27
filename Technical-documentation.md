@@ -31,5 +31,5 @@ The main module call several javascript file :
 ### The interface module
 
 The extension's UI is a sidebar. Its code is wrote in one HTML file (data/contrast-finder-module.html). The interface is design with CSS, all CSS files to design the sidebar are available in data/css/ folder.<br/>
-The interface listen and send message to the main script using the data/js/form.js file. When an event is catched, the form.js file modify the sidebar DOM (for the UI) and send message to the main script.
+The interface listen and send messages to the main script using the data/js/form.js file. When an event is catched, the form.js file modify the sidebar DOM (for the UI) and send message to the main script.
 
