@@ -35,6 +35,6 @@ The interface listen and send messages to the main script using the data/js/form
 
 ### Other files
 
-Some utils function are available under the lib/utils/ folder :
+Some utils function are available under the lib/utils/ folder and import from the main script :
 * to convert RGB color to its hexadecimal value or to get the pixel color pointed by the mouse (color-utils.js).
 * to get the ratio from a background and a foreground (ratio-utils.js).
