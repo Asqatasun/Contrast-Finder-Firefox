@@ -23,3 +23,7 @@ see [Usage & screenshots](Usage and screenshots)
 ## How to deploy
 
 1. get into the directory of the source code, and run `cfx xpi`
+
+## How to contribute
+
+See the [technical documentation](https://github.com/Tanaguru/Contrast-Finder-Firefox/wiki/Technical-documentation)
