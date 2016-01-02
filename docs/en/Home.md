@@ -1,7 +1,10 @@
-This is Tanaguru **Contrast-Finder** for **Firefox**
-> https://addons.mozilla.org/en-US/firefox/addon/tanaguru-contrast-finder/
+This is Asqatasun **Contrast-Finder** for **Firefox**
+> @@@TODO add URL of addons.mozilla.org
 
-This **addon** speeds and eases the use of [Tanaguru Contrast-Finder](http://contrast-finder.tanaguru.com/) to find good color contrast by selecting **directly in the web page** the element whom color you want to change.
+This **addon** speeds and eases the use of [Asqatasun Contrast-Finder](#) 
+to find good **color contrast** by selecting **directly in the web page** 
+the element whom color you want to change. 
+@@@TODO update URL of Asqatasun Contrast-Finder
 
 This helps you in satisfying **web accessibility** (a11y) tests on contrasts:
 
@@ -11,11 +14,11 @@ This helps you in satisfying **web accessibility** (a11y) tests on contrasts:
 
 ## Usage and screenshots
 
-see [Usage & screenshots](Usage and screenshots)
+see [Usage & screenshots](Usage-and-screenshots.md)
 
 ## How to build
 
-1. `git clone git@github.com:Tanaguru/Contrast-Finder-Firefox.git`
+1. `git clone git@github.com:Asqatasun/Contrast-Finder-Firefox`
 1. Get [lastest Mozilla Addon SDK](https://ftp.mozilla.org/pub/mozilla.org/labs/jetpack/jetpack-sdk-latest.zip) 
 1. from the SDK, run `bin/activate` (please, read the SDK's README that describes it all)
 1. To test `cfx run`
@@ -26,4 +29,4 @@ see [Usage & screenshots](Usage and screenshots)
 
 ## How to contribute
 
-See the [technical documentation](https://github.com/Tanaguru/Contrast-Finder-Firefox/wiki/Technical-documentation)
+See the [technical documentation](Technical-documentation.md)
