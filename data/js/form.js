@@ -169,7 +169,7 @@ function initializeHtmlElements() {
     document.getElementById("valid-contrast-alt-attribute").style.display = "none";
     document.getElementById("invalid-contrast-alt-attribute").style.display = "none";
     if (document.getElementById("language-reference").textContent == "Avant plan") {
-	submit.title = "Trouver des couleurs valides (vous emmenera sur Tanaguru Contrast-Finder dans un nouvel onglet)";
+	submit.title = "Trouver des couleurs valides (vous emmenera sur Asqatasun Contrast-Finder dans un nouvel onglet)";
     }
 }
 
