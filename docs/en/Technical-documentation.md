@@ -23,7 +23,7 @@ worker.port.on("myMessage", function(data) {
 ```
 
 The main module call several javascript file :
-* The data/js/contrast-finder.js script to redirect the user to contrast-finder.org with solutions if the contrast is not valid, else it shows an alertbox with a message.
+* The data/js/contrast-finder.js script to redirect the user to [https://app.contrast-finder.org](https://app.contrast-finder.org) with solutions if the contrast is not valid, else it shows an alertbox with a message.
 * The data/js/cm-sidebar-label.js script that send a simple message to open or close the sidebar.
 * The data/js/contrast-finder-module.js script when the user use click on the element selector. 
 * The data/js/picker-module.js script is called when the user click either on the foreground or the background picker button.
