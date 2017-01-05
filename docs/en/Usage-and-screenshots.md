@@ -6,7 +6,7 @@
 
 ![screenshot 01](Images/Contrast-Finder_01_open_sidebar.png)
 
-## 3) Asqatasun Contrast-Finder's sidebar
+## 3) Contrast-Finder's sidebar
 
 ![screenshot 02](Images/Contrast-Finder_02_sidebar_opened.png)
 

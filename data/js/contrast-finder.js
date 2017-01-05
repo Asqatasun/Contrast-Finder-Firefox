@@ -204,9 +204,9 @@ self.on("click", function(node, data) {
 	var fontSize = getForegroundFontSize(node);
 	var fontWeight = getForegroundFontWeight(node);
         if ((fontSize < 18 && fontWeight < 700 && ratio < 4.5) || (fontSize < 14 && fontWeight >= 700 && ratio < 4.5)) {
-            window.location.href = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + colorToHex(getForegroundColor(node)) + "&background=%23" + colorToHex(bgColor) + "&isBackgroundTested=" + data + "&ratio=4.5&algo=HSV";
+            window.location.href = "https://app.contrast-finder.org/result.html?foreground=%23" + colorToHex(getForegroundColor(node)) + "&background=%23" + colorToHex(bgColor) + "&isBackgroundTested=" + data + "&ratio=4.5&algo=HSV";
         } else if ((fontSize >= 18 && fontWeight < 700 && ratio < 3) || (fontSize >= 14 && fontWeight >= 700 && ratio < 3 )) {
-            window.location.href = "http://contrast-finder.tanaguru.com/result.html?foreground=%23" + colorToHex(getForegroundColor(node)) + "&background=%23" + colorToHex(bgColor) + "&isBackgroundTested=" + data + "&ratio=3&algo=HSV";
+            window.location.href = "https://app.contrast-finder.org/result.html?foreground=%23" + colorToHex(getForegroundColor(node)) + "&background=%23" + colorToHex(bgColor) + "&isBackgroundTested=" + data + "&ratio=3&algo=HSV";
 	}
 	else {
 	    alert("Hey, contrast is already OK !\nForeground: #" + colorToHex(getForegroundColor(node)).toUpperCase() + "\nBackground #" + colorToHex(bgColor).toUpperCase());

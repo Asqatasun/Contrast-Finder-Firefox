@@ -1,22 +1,24 @@
 [![License : AGPL v3](https://img.shields.io/badge/License-AGPL3-blue.svg)](LICENSE) 
 
-# Asqatasun Contrast-Finder-Firefox
+# Contrast-Finder-Firefox
 
-Firefox extension to ease use of Asqatasun Contrast-Finder
+Firefox extension to ease use of Contrast-Finder
 
 This is Asqatasun **Contrast-Finder** for **Firefox**
 > @@@TODO add URL of addons.mozilla.org
  
-This **addon** speeds and eases the use of [Asqatasun Contrast-Finder](#) 
+This **addon** speeds and eases the use of [Contrast-Finder](https://app.contrast-finder.org) 
 to find good **color contrast** by selecting **directly in the web page** 
 the element whom color you want to change. 
-@@@TODO update URL of Asqatasun Contrast-Finder
 
-This helps you in satisfying web accessibility (a11y) tests on contrasts:
+This helps you in satisfying **web accessibility** (a11y) tests on contrasts:
 
 * [WCAG Success Criteria 1.4.3](http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast)
+* [WCAG Success Criteria 1.4.6](http://www.w3.org/TR/WCAG20/#visual-audio-contrast7)
+* [RGAA test 3.3 (in french)](http://references.modernisation.gouv.fr/rgaa-accessibilite/criteres.html#crit-3-3)
+* [RGAA test 3.4 (in french)](http://references.modernisation.gouv.fr/rgaa-accessibilite/criteres.html#crit-3-4)
 * [AccessiWeb criteria 3.3](http://www.accessiweb.org/index.php/accessiweb-22-english-version.html#crit-3-3)
-* [RGAA test 2.5 (in french)](http://rgaa.net/Valeur-du-rapport-de-contraste-du.html)
+
 
 
 ## Documentation
@@ -29,7 +31,7 @@ How to use ? Go to the [documentation](docs/en/) !
 
 ![screenshot 01](docs/en/Images/Contrast-Finder_01_open_sidebar.png)
 
-### 2) Asqatasun Contrast-Finder's sidebar
+### 2) Contrast-Finder's sidebar
 
 ![screenshot 02](docs/en/Images/Contrast-Finder_02_sidebar_opened.png)
 
