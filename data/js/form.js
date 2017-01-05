@@ -135,7 +135,7 @@ addon.port.on("click-components", function(tabResult) {
     addon.port.emit("unchecked");
     component = backgroundIsTested;
     
-    var openUrl = "http://contrast-finder.tanaguru.com/result.html?foreground=%23"
+    var openUrl = "https://app.contrast-finder.org/result.html?foreground=%23"
 	+ foreground.textContent.replace("#", "") + "&background=%23"
 	+ background.textContent.replace("#", "")
 	+ "&isBackgroundTested=" + backgroundIsTested + "&ratio="
@@ -169,7 +169,7 @@ function initializeHtmlElements() {
     document.getElementById("valid-contrast-alt-attribute").style.display = "none";
     document.getElementById("invalid-contrast-alt-attribute").style.display = "none";
     if (document.getElementById("language-reference").textContent == "Avant plan") {
-	submit.title = "Trouver des couleurs valides (vous emmenera sur Tanaguru Contrast-Finder dans un nouvel onglet)";
+	submit.title = "Trouver des couleurs valides (vous emmenera sur Contrast-Finder dans un nouvel onglet)";
     }
 }
 
