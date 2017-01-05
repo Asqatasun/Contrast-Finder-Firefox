@@ -1,10 +1,11 @@
 [![License : AGPL v3](https://img.shields.io/badge/License-AGPL3-blue.svg)](LICENSE) 
+[![Release](https://img.shields.io/github/release/asqatasun/Contrast-Finder-Firefox.svg)](https://github.com/Asqatasun/Contrast-Finder-Firefox/releases/latest)
 
 # Contrast-Finder-Firefox
 
-Firefox extension to ease use of Contrast-Finder
+Firefox extension to ease use of [Contrast-Finder.org](https://contrast-finder.org) 
 
-This is Asqatasun **Contrast-Finder** for **Firefox**
+This is **Contrast-Finder** for **Firefox**
 > @@@TODO add URL of addons.mozilla.org
  
 This **addon** speeds and eases the use of [Contrast-Finder](https://app.contrast-finder.org) 

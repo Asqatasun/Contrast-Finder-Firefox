@@ -1,4 +1,4 @@
-This is Asqatasun **Contrast-Finder** for **Firefox**
+This is **Contrast-Finder** for **Firefox**
 > @@@TODO add URL of addons.mozilla.org
 
 This **addon** speeds and eases the use of [Contrast-Finder](https://app.contrast-finder.org) 
